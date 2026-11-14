@@ -1,0 +1,18 @@
+\begin{table*}[t]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\caption{Ablation A: multi-task coupling (PH = 30 min). Single-task arms zero the other task's loss weight, so the trunk is trained by one objective; the untrained head's metrics are reported but not meaningful. All ablation arms share one budget (20 epochs, fit split subsampled $2\times$), lighter than Table~\ref{tab:sota_ph30}'s (30 epochs, full fit split); rows here compare to each other, not to Table~\ref{tab:sota_ph30}.}
+\label{tab:ablation_a_multitask_ph30}
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
+\begin{tabular}{lrrrrrrrr}
+\toprule
+Arm & PR-AUC & ROC-AUC & Se@5\% & FAPD@5\% & Onset lead (min) & RMSE & Lag (min) & A+B (\%) \\
+\midrule
+Regression only & 0.028 & 0.3187 & 0.030 & 5.61 & 26.2 & \textbf{18.19} & \textbf{20.0} & 99.34 \\
+Classification only & \textbf{0.868} & \textbf{0.9915} & \textbf{0.963} & 2.06 & \textbf{26.4} & 23.27 & 30.0 & 98.96 \\
+Joint, fixed $\lambda=1$ & 0.842 & 0.9890 & 0.952 & 2.72 & 26.0 & 18.37 & 20.0 & \textbf{99.39} \\
+Joint, Kendall uncertainty & 0.865 & 0.9912 & 0.959 & 2.87 & 26.4 & 18.49 & 20.0 & 99.36 \\
+\bottomrule
+\end{tabular}}
+\end{table*}

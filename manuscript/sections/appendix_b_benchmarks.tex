@@ -1,0 +1,137 @@
+% Appendix B -- the 60-minute master benchmark and the controls that say what
+% the classical baselines' forewarning columns actually measure.
+\section{Extended Benchmark Results (\texorpdfstring{$\PH = 60$}{PH = 60}) and Baseline Controls}
+\label{app:benchmarks}
+
+\paragraph*{How to read the classification columns of Tables~\ref{tab:sota_ph30}
+and~\ref{tab:sota_ph60}.} Persistence, Ridge-AR and ARIMA have no classification
+head. Their PR-AUC, Se@FPR and FAPD entries come from
+$\sigma((70 - \hat{y})/\tau)$ applied to a forecast of $g(t{+}\mathrm{PH})$,
+while the label is $\min g$ over $(t, t{+}\mathrm{PH}]$. Those three entries are
+therefore lower bounds on what the method achieves when fitted to the labelled
+quantity, and Table~\ref{tab:ablation_f_nadir_target_ph30} refits Ridge-AR to the
+nadir to quantify the gap. LightGBM and both neural arms fit a classifier on the
+nadir label directly and are unaffected. This caveat applies to every benchmark
+table in the paper; the captions state it in one clause and point here.
+
+\subsection{Sixty-Minute Horizon: Master Benchmark}
+\label{sec:appendix_benchmarks}
+
+% These two generated tables have sixteen columns. Set as ordinary table*
+% floats they are shrunk to about 5 pt; set landscape (rotating's
+% sidewaystable*, inside a group so no other float changes) they print near
+% their natural size. The generated files are not edited.
+\begingroup
+\renewenvironment{table*}[1][]{\begin{sidewaystable*}[p]}{\end{sidewaystable*}}
+\input{../runs/paper_results/benchmarks/table_sota_h30.tex}
+\input{../runs/paper_results/benchmarks/table_sota_h60.tex}
+\endgroup
+
+Tables~\ref{tab:sota_ph30} and~\ref{tab:sota_ph60} give every metric for one
+seed ($1337$) at $\PH = 30$ and $60$~min on the official test split. They exist
+for completeness: a bold entry marks the best value in that single run and is
+not evidence of a difference. Comparisons between arms should be read from the
+multi-seed tables below. Persistence, Ridge-AR and ARIMA have no classification
+head, so their forewarning columns are lower bounds, which
+Appendix~\ref{sec:ablation_f} quantifies.
+
+% A full-page rotated float otherwise waits at the head of the two-column
+% float queue and holds every later table back to the end of the paper; flush
+% the two landscape tables here, before the next subsection.
+\clearpage
+\subsection{Multi-Seed Results and Bootstrap Intervals}
+\label{sec:appendix_multiseed}
+
+\input{../runs/paper_results/benchmarks_seeds/table_multiseed_diffs_h30.tex}
+\input{../runs/paper_results/benchmarks_seeds/table_sota_multiseed_h60.tex}
+\input{../runs/paper_results/benchmarks_seeds/table_multiseed_diffs_h60.tex}
+
+Table~\ref{tab:sota_multiseed_ph30} (main text) and
+Table~\ref{tab:sota_multiseed_ph60} report means over $\NumMSSeeds$ seeds;
+classical arms and LightGBM are deterministic. CIs resample the twelve subjects,
+so they reflect between-subject variation, and twelve clusters make them
+approximate. Three readings follow. Fusion improves RMSE over the CGM-only
+network at both horizons, with CIs excluding zero. Fusion and LightGBM are not
+separated on RMSE or PR-AUC at either horizon. The three neural arms are not
+separated on PR-AUC, so no arm leads on forewarning.
+
+\subsection{Sensitivity of False-Alarm Burden to the Alarm Policy}
+\label{sec:appendix_latching}
+
+\input{../runs/paper_results/fapd_latching/table_fapd_latching.tex}
+
+FAPD counts alarm episodes, so it depends on what ends an episode. The default
+policy ends an alarm as soon as the score dips below threshold, so a single
+5-minute dip produces a second sounding. Table~\ref{tab:fapd_latching} re-scores
+every arm under two alternatives, holding each seed's calibration-fitted
+threshold fixed: latching across gaps of up to $G$ minutes, and a minimum
+duration of $D$ minutes before an alarm sounds. Absolute FAPD is highly
+policy-dependent: fusion falls from $\NumLatchBaseFusionFAPD$ to
+$\NumLatchGSixtyFusionFAPD$ false alarms per day under 60-minute latching, so
+FAPD values are comparable only within a policy. Persistence has the lowest FAPD
+under every policy tested, at the cost of the shortest onset lead. Fusion's lower
+FAPD than LightGBM under latching does not come free: under a 15-minute minimum
+duration, fusion detects $\NumLatchDFifteenFusionDet\%$ of onsets against
+LightGBM's $\NumLatchDFifteenLGBMDet\%$ (difference $\NumLatchDFifteenDetDiffLGBM$
+points, 95\% subject-bootstrap CI $[\NumLatchDFifteenDetDiffLGBMLo,
+\NumLatchDFifteenDetDiffLGBMHi]$).
+
+\subsection{Ablation F: Is the Endpoint Baseline Handicapped?}
+\label{sec:ablation_f}
+
+\input{../runs/paper_results/ablations/table_ablation_f_nadir_target.tex}
+
+Section~\ref{sec:baselines} flagged an asymmetry in the benchmark table:
+persistence, Ridge-AR and ARIMA are scored on a nadir label through a monotone
+map of an endpoint forecast. This study measures what that costs them, by
+refitting Ridge-AR to $\min g$ over $(t, t{+}\PH]$ instead of $g(t{+}\PH)$. The
+design matrix, the ridge penalty, the residual parameterisation and the risk
+mapping are all unchanged; only the regression target moves, so the difference
+between the two rows is attributable to the target and nothing else.
+
+\textbf{The handicap is real and we were understating these baselines.}
+Targeting the nadir raises Ridge-AR's PR-AUC by $\NumAblFNadirGainHThirty$ at
+$\PH = 30$ and $\NumAblFNadirGainHSixty$ at $\PH = 60$, and lowers its
+false-alarm rate from $\NumAblFRidgeLevelFAPDHThirty$ to
+$\NumAblFRidgeNadirFAPDHThirty$ per day. ROC-AUC barely moves
+($\NumAblFRidgeLevelROCAUCHThirty \to \NumAblFRidgeNadirROCAUCHThirty$), which
+locates the gain precisely: the endpoint forecast ranks the bulk of the
+distribution just as well, and what it was losing was precision on the rare
+positive class. More specifically, those are the transient nadirs that recover
+before the horizon, which are the events the label is built around and the
+endpoint cannot see. At
+$\PH = 30$ the nadir-targeted Ridge-AR ($\NumAblFRidgeNadirPRAUCHThirty$) also
+overtakes LightGBM's native classifier ($\NumAblFLGBMPRAUCHThirty$), so this is
+not a small correction to an also-ran.
+
+\textbf{With the baseline corrected, the network's forewarning advantage is
+not established.} Against nadir-targeted Ridge-AR, CausalCGM-MT is ahead by
+$\NumAblFMTLeadOverNadirHThirty$ PR-AUC at $\PH = 30$ and
+$\NumAblFMTLeadOverNadirHSixty$ at $\PH = 60$ in this single-seed study. Those
+gaps are compared here with the seed-to-seed standard deviation of each neural
+arm's PR-AUC in the multi-seed tables. At $\PH = 30$ these are
+$\NumMSFusionPRAUCHThirtySD$ (fusion), $\NumMSLSTMPRAUCHThirtySD$ (LSTM) and
+$\NumMSCGMOnlyPRAUCHThirtySD$ (CGM-only); at $\PH = 60$ they are
+$\NumMSFusionPRAUCHSixtySD$, $\NumMSLSTMPRAUCHSixtySD$ and
+$\NumMSCGMOnlyPRAUCHSixtySD$. The $\PH = 30$ gap is below all three. The
+$\PH = 60$ gap is under two standard deviations of the fusion and LSTM arms
+but several times that of the CGM-only arm, and it comes from one seed, so we
+do not claim a lead over a well-posed classical baseline. A claim
+that rests on a baseline being asked the wrong question is not a claim about the
+model.
+
+It follows that the classification columns for persistence, Ridge-AR and ARIMA
+in the benchmark tables are lower bounds on what those methods achieve when
+targeted at the labelled quantity, and should not be cited as the ceiling for
+classical forecasting.
+
+\subsection{What the Sigmoid Mapping Measures}
+\label{sec:appendix_sigmoid}
+
+The mapping asks those three arms an uneven question. The label is $\min g$ over
+$(t, t{+}\PH]$; a level forecast at $t{+}\PH$ is blind to a nadir at $t{+}20$
+that recovers by $t{+}30$, and no monotone map of that forecast can recover what
+the forecast did not encode. Their classification columns therefore measure two
+things at once: how well the arm forecasts, and how much nadir information a
+$t{+}\PH$ endpoint carries. Section~\ref{sec:ablation_f} separates them by
+fitting the same arm to the nadir directly.

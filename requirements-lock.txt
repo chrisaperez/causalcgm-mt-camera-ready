@@ -1,0 +1,37 @@
+# Exact versions this repository's test suite was last verified against.
+#
+#   .venv/bin/pip install -r requirements-lock.txt
+#
+# WHY THIS IS DIRECT DEPENDENCIES ONLY, NOT `pip freeze`
+# ------------------------------------------------------
+# A full freeze of this environment names `polars-runtime-32`, the CPU-feature
+# -specific runtime wheel polars selects per platform. Pinning it would make the
+# lock file install only on machines like the one that produced it, which is the
+# opposite of what a public release needs. Transitive dependencies are therefore
+# left to the resolver, and only the packages this repository imports by name
+# are fixed here.
+#
+# `requirements.txt` is the file to install for a COMPATIBLE environment; this
+# one is for reproducing a specific one. Regenerate after any deliberate
+# upgrade, and re-run the suite before committing the result.
+#
+# Verified on: Python 3.10.13, Darwin arm64.
+
+numpy==2.2.6
+pandas==2.3.3
+scipy==1.15.3
+scikit-learn==1.7.2
+torch==2.13.0
+polars==1.44.1
+pyarrow==24.0.0
+psutil==7.2.2
+lightgbm==4.7.0
+statsmodels==0.14.6
+methcomp==1.0.0
+matplotlib==3.10.9
+onnx==1.22.0
+onnxruntime==1.23.2
+onnxscript==0.7.1
+plotly==6.9.0
+streamlit==1.61.1
+pytest==9.1.1

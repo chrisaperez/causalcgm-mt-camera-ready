@@ -1,0 +1,20 @@
+\begin{table*}[t]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\caption{Sample efficiency: mean paired $\Delta$RMSE (mg/dL) against the zero-shot population model as a function of adaptation prefix length, PH = 30 min. Negative is an improvement; every entry is positive.}
+\label{tab:sample_efficiency}
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
+\begin{tabular}{lrrrr}
+\toprule
+Adaptation & 6 h & 12 h & 24 h & 48 h \\
+\midrule
+none & \textbf{+0.000} & \textbf{+0.000} & \textbf{+0.000} & \textbf{+0.000} \\
+bn\_adapt & +3.851 & +3.121 & +1.043 & +1.021 \\
+lora (r=4) & +2.991 & +2.909 & +2.834 & +1.913 \\
+lora (r=8) & +2.944 & +2.538 & +2.522 & +1.788 \\
+head\_only & +1.772 & +1.241 & +0.701 & +0.172 \\
+full & +3.875 & +3.534 & +3.982 & +3.282 \\
+\bottomrule
+\end{tabular}}
+\end{table*}

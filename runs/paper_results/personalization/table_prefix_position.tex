@@ -1,0 +1,20 @@
+\begin{table*}[t]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\caption{Adaptation prefix position at a 24 h prefix, PH = 30 min. Both arms use the same subjects, evaluation windows, adapter, step budget and prefix length; they differ only in how far the prefix sits from the windows being scored. The opening prefix ends a median of 44~days before the first scored window; the recent prefix ends 185~min before it, which is the embargo itself. No column of paired differences is significant, and no arm becomes an improvement over zero-shot under either position. Negative $\Delta$RMSE and positive $\Delta$PR-AUC are better.}
+\label{tab:prefix_position}
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
+\begin{tabular}{lrrrrrrrr}
+\toprule
+Adaptation & $\Delta$RMSE open & $\Delta$RMSE recent & rec$-$open & $p_{\mathrm{Holm}}$ & $\Delta$PR-AUC open & $\Delta$PR-AUC recent & rec$-$open & $p_{\mathrm{Holm}}$ \\
+\midrule
+none & +0.000 & +0.000 & +0.000 & -- & +0.000 & +0.000 & +0.000 & -- \\
+bn\_adapt & +1.043 & +1.521 & +0.478 & 0.977 & -0.057 & -0.046 & +0.011 & 1.000 \\
+lora (r=4) & +2.834 & +3.754 & +0.920 & 0.888 & -0.105 & -0.154 & -0.049 & 1.000 \\
+lora (r=8) & +2.522 & +3.313 & +0.791 & 0.699 & -0.112 & -0.154 & -0.042 & 1.000 \\
+head\_only & +0.701 & +1.566 & +0.865 & 0.888 & -0.056 & -0.041 & +0.015 & 1.000 \\
+full & +3.982 & +4.209 & +0.227 & 0.977 & -0.094 & -0.196 & -0.102 & 0.412 \\
+\bottomrule
+\end{tabular}}
+\end{table*}

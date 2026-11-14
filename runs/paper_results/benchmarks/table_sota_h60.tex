@@ -1,0 +1,22 @@
+\begin{table*}[t]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\caption{OhioT1DM official test split, PH = 60 min (12 subjects, $n = 28335$ windows). Coverage and width are split-conformal at $\alpha = 0.1$, calibrated on the disjoint calibration split; hypo coverage is the Mondrian $<70$ mg/dL stratum. Persistence, Ridge-AR and ARIMA have no classification head, so their PR-AUC, Se@FPR and FAPD entries are \emph{lower bounds} (Appendix~\ref{app:benchmarks}).}
+\label{tab:sota_ph60}
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
+\begin{tabular}{lrrrrrrrrrrrrrrr}
+\toprule
+Model & RMSE & MAE & MARD (\%) & Lag (min) & A+B (\%) & D+E ($n$) & Parkes A+B (\%) & PR-AUC & Se@5\% & Se@10\% & FAPD@5\% & Onset lead (min) & Cov. & Hypo cov. & Width \\
+\midrule
+Persistence & 38.16 & 28.12 & 19.03 & 60.0 & 96.88 & 700 & 97.84 & 0.724 & 0.789 & 0.866 & 1.25 & 35.8 & 0.909 & 0.928 & 129.9 \\
+Ridge-AR & 33.82 & 25.32 & 17.63 & 50.0 & 96.27 & 987 & 98.01 & 0.702 & 0.864 & 0.920 & 3.72 & 45.1 & 0.905 & 0.936 & 112.3 \\
+ARIMA(4,1,0) & 36.55 & 26.68 & 17.95 & 55.0 & 97.25 & \textbf{611} & 98.18 & 0.752 & 0.830 & 0.901 & 2.34 & 40.8 & 0.911 & 0.931 & 125.6 \\
+LightGBM & 32.12 & 23.13 & 15.53 & 45.0 & 96.93 & 820 & 98.50 & 0.755 & \textbf{0.867} & 0.926 & 3.76 & \textbf{46.0} & 0.910 & 0.939 & 110.5 \\
+Dilated LSTM (CGM) & 33.50 & 23.89 & 15.54 & 45.0 & 97.50 & 662 & \textbf{98.81} & 0.766 & 0.858 & 0.920 & 3.28 & 44.5 & 0.911 & \textbf{0.952} & 117.2 \\
+CausalCGM-MT (CGM) & 33.07 & 23.70 & 15.80 & 45.0 & 97.21 & 711 & 98.64 & 0.775 & 0.844 & 0.910 & 2.99 & 42.1 & 0.918 & 0.942 & 118.5 \\
+CausalCGM-MT (fusion) & \textbf{31.76} & \textbf{22.64} & \textbf{14.83} & \textbf{40.0} & \textbf{97.55} & 676 & 98.78 & \textbf{0.783} & 0.858 & \textbf{0.928} & 3.00 & 44.7 & 0.925 & 0.947 & 117.4 \\
+CausalCGM-MT + LoRA ($r = 4$) & 37.59 & 28.01 & 18.72 & 45.0 & 96.96 & 824 & 97.67 & 0.548 & 0.589 & 0.731 & 1.63 & 32.9 & 0.927 & 0.938 & 137.4 \\
+\bottomrule
+\end{tabular}}
+\end{table*}

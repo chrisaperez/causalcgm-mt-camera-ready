@@ -1,0 +1,17 @@
+\begin{table*}[t]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\caption{Ablation D: what lookahead bias buys (PH = 30 min). Arms are \emph{not} scored on the same test set: changing the split is the flaw being measured.}
+\label{tab:ablation_d_leakage_ph30}
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
+\begin{tabular}{lrrrrrrr}
+\toprule
+Arm & RMSE & MAE & PR-AUC & Se@5\% & A+B (\%) & Lag (min) & $n$ test \\
+\midrule
+Strict causal pipeline (ours) & 18.49 & 12.78 & 0.865 & 0.959 & 99.36 & 20.0 & 28335 \\
++ unembargoed random split & 18.73 & 12.75 & 0.878 & 0.938 & 99.19 & -- & 29932 \\
++ full-series interpolation \& centred features & 14.24 & 9.02 & 0.943 & 0.988 & 99.59 & -- & 37704 \\
+\bottomrule
+\end{tabular}}
+\end{table*}

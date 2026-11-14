@@ -1,0 +1,43 @@
+# The build context is uploaded to the daemon in full before any COPY runs, so
+# what is excluded here matters even though the Dockerfile copies selectively.
+
+# LICENSED DATA. OhioT1DM must never enter an image layer or a build cache --
+# it is mounted read-only at run time instead. This is the most important line
+# in this file.
+OhioT1DM/
+
+# MetaboNet, for the same reason and one more: it CONSOLIDATES fourteen studies
+# including OhioT1DM and HUPA-UCM, so the parquet carries the same DUA-restricted
+# data -- and at 1.26 GB it would be uploaded to the daemon on every build.
+*.parquet
+
+# Multi-hundred-megabyte regenerable caches and results. `runs/` is a mounted
+# volume at run time; baking it in would ship a stale window cache and, worse,
+# per-window CGM values inside the prediction dumps.
+runs/
+dist/
+
+# Host build products that must not leak into a Linux image.
+.venv/
+cpp/build/
+cpp/vendor/
+__pycache__/
+**/__pycache__/
+*.pyc
+.pytest_cache/
+
+# Editor and OS noise.
+.DS_Store
+**/.DS_Store
+.git/
+.gitignore
+
+# LaTeX intermediates; the container rebuilds them.
+manuscript/*.aux
+manuscript/*.log
+manuscript/*.out
+manuscript/*.bbl
+manuscript/*.blg
+manuscript/main.pdf
+
+.venv/

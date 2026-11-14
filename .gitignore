@@ -1,0 +1,102 @@
+.venv/
+# Results: ignored wholesale EXCEPT the public-tier allow-list below, which
+# mirrors the "public" entries of scripts/package_release.py CONTENTS (plus the
+# aggregate multi-seed / calibration-bootstrap / alarm-policy summaries the
+# manuscript \inputs). Name files, never directories: a directory un-ignore is
+# how per-window predictions (DUA-restricted OhioT1DM data) leak. Not shipped:
+# predictions/, *.npz, *.pkl, *.pt (incl. personalization/base_model.pt),
+# *.onnx, logs, MetaboNet per-fold results. metabonet_summary.json ships only in
+# its redacted form (scripts/redact_metabonet_summary.py; no subject IDs) so a
+# clone regenerates the MetaboNet macros; the release zip (package_release.py)
+# still ships only the MetaboNet table.
+/runs/**
+!/runs/**/
+!/runs/paper_results/benchmarks/results_summary.json
+!/runs/paper_results/benchmarks/table_sota_comparison.tex
+!/runs/paper_results/benchmarks/table_sota_h30.tex
+!/runs/paper_results/benchmarks/table_sota_h60.tex
+!/runs/paper_results/ablations/ablations_summary.json
+!/runs/paper_results/ablations/table_*.tex
+!/runs/paper_results/personalization/personalization_sweep.json
+!/runs/paper_results/personalization/table_*.tex
+!/runs/paper_results/edge/latency_sweep.json
+!/runs/paper_results/benchmarks_seeds/multiseed_summary.json
+!/runs/paper_results/benchmarks_seeds/table_sota_multiseed_h30.tex
+!/runs/paper_results/benchmarks_seeds/table_sota_multiseed_h60.tex
+!/runs/paper_results/benchmarks_seeds/table_multiseed_diffs_h30.tex
+!/runs/paper_results/benchmarks_seeds/table_multiseed_diffs_h60.tex
+!/runs/paper_results/conformal_bootstrap.json
+!/runs/paper_results/fapd_latching/fapd_latching.json
+!/runs/paper_results/fapd_latching/table_fapd_latching.tex
+!/runs/metabonet_results/benchmarks/table_metabonet_comparison.tex
+# Redacted by scripts/redact_metabonet_summary.py (subject IDs -> per-source counts).
+!/runs/metabonet_results/benchmarks/metabonet_summary.json
+__pycache__/
+*.pyc
+.pytest_cache/
+data/
+cpp/build/
+cpp/vendor/
+*.onnx
+*.onnx.data
+
+# Restricted clinical datasets (DUA-restricted)
+OhioT1DM/
+*.npz
+predictions/
+# MetaboNet consolidates fourteen studies INCLUDING OhioT1DM and HUPA-UCM, so
+# the parquet carries DUA-restricted data (and is 1.3 GB). Never commit it.
+*.parquet
+
+# OS & Environment
+.DS_Store
+**/.DS_Store
+.env
+.env.*
+*.env
+
+# IDEs & editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
+
+# Build & packaging
+dist/
+build/
+*.egg-info/
+*.egg
+*.pt
+*.pth
+*.pkl
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+causalcgm_mt_runner
+
+# Testing & coverage
+.coverage
+.coverage.*
+htmlcov/
+
+# LaTeX intermediates (preserves manuscript/figures/*.pdf)
+manuscript/*.aux
+manuscript/*.log
+manuscript/*.out
+manuscript/*.bbl
+manuscript/*.blg
+manuscript/*.synctex.gz
+manuscript/*.toc
+manuscript/*.lof
+manuscript/*.lot
+manuscript/missfont.log
+
+# Logs
+*.log
+logs/
+# LaTeX auxiliary written by the class at build time
+manuscript/*.bibout

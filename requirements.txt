@@ -1,0 +1,68 @@
+# CausalCGM-MT runtime and test dependencies.
+#
+# TWO PINNING STYLES, DELIBERATELY
+# --------------------------------
+#   >=floor,<ceiling   The scientific core. The floor is the oldest release the
+#                      code is written against; the CEILING is the next major,
+#                      because that is where these projects make their breaking
+#                      changes (NumPy 2.0 changed scalar promotion and removed
+#                      `np.float_`; pandas 3.0 changes copy-on-write). Without a
+#                      ceiling, `pip install -r requirements.txt` a year from now
+#                      resolves to releases this code has never been run against,
+#                      and the failure surfaces as a metric that moved rather
+#                      than as an install error.
+#
+#   ==exact            Packages whose OUTPUT this repository depends on, not just
+#                      their API: the ONNX toolchain (the exported graph and its
+#                      opset are compared against the C++ runner by
+#                      `scripts/verify_cpp_parity.py`), the LightGBM baseline arm
+#                      that is a row in Table 1, the verified Parkes grid
+#                      backend, and the dashboard's rendering stack.
+#
+# `requirements-lock.txt` records the exact set the suite was last verified
+# against. Install that instead when you need to reproduce an environment rather
+# than build a compatible one.
+
+# ---- scientific core --------------------------------------------------------
+numpy>=1.24,<3.0
+pandas>=2.0,<3.0
+scipy>=1.10,<2.0
+scikit-learn>=1.3,<2.0
+torch>=2.2,<3.0
+
+# ---- data ingestion ---------------------------------------------------------
+polars>=1.0,<2.0        # lazy/streaming parquet ingestion for MetaboNet (metabonet_loader.py)
+pyarrow>=14.0,<26.0     # parquet schema reads; also what streamlit's tables use.
+                        # pyarrow bumps its major every release, so this ceiling
+                        # is a wide guard rail rather than a compatibility claim.
+psutil>=5.9,<8.0        # RSS reporting in the MetaboNet loader's progress log
+
+# ---- baselines --------------------------------------------------------------
+lightgbm==4.7.0
+statsmodels>=0.14,<0.15  # ARIMA(4,1,0) baseline arm (benchmark.py, Table 1).
+                         # Pre-1.0, so the MINOR is the breaking boundary.
+                         # Was previously reachable only as a methcomp
+                         # dependency: dropping the optional Parkes backend took
+                         # a published table row with it.
+
+# ---- clinical metrics -------------------------------------------------------
+methcomp==1.0.0          # verified Parkes error grid backend (see causalcgm_mt/clinical.py).
+                         # The one genuinely OPTIONAL entry: `parkes_available()`
+                         # degrades to Clarke-only reporting without it.
+
+# ---- figures ----------------------------------------------------------------
+matplotlib>=3.7,<4.0     # scripts/make_paper_figures.py -- the `figures` stage of
+                         # reproduce_all_paper_results.sh. Also previously only a
+                         # transitive methcomp dependency.
+
+# ---- export and edge runner -------------------------------------------------
+onnx==1.22.0
+onnxruntime==1.23.2
+onnxscript==0.7.1
+
+# ---- dashboard (app.py) -----------------------------------------------------
+plotly==6.9.0
+streamlit==1.61.1
+
+# ---- tests ------------------------------------------------------------------
+pytest>=7.4,<10.0

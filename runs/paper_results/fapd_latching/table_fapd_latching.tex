@@ -1,0 +1,21 @@
+\begin{table*}[t]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\caption{False alarms per day / onset detection rate at $\PH = 30$~min under alternative alarm policies, mean over 5 seeds. G: latching gap (min) within which a new above-threshold run does not sound again; D: minimum duration (min) before an alarm sounds. G=0, D=5 is the policy used elsewhere in the paper. Thresholds are each seed's calibration-split 5\%-FPR thresholds, not refitted per policy.}
+\label{tab:fapd_latching}
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
+\begin{tabular}{lrrrrrrr}
+\toprule
+Policy (G, D) & Persist. & Ridge & ARIMA & LGBM & LSTM & TCN-CGM & Fusion \\
+\midrule
+G=0, D=5 & 1.16 / 95\% & 2.99 / 95\% & 2.05 / 95\% & 2.90 / 95\% & 2.61 / 95\% & 2.64 / 95\% & 2.47 / 94\% \\
+G=5, D=5 & 1.06 / 95\% & 2.22 / 95\% & 1.76 / 95\% & 2.44 / 95\% & 2.01 / 95\% & 1.90 / 95\% & 1.85 / 94\% \\
+G=15, D=5 & 1.01 / 95\% & 1.69 / 95\% & 1.47 / 95\% & 1.99 / 95\% & 1.63 / 95\% & 1.55 / 95\% & 1.52 / 94\% \\
+G=30, D=5 & 0.90 / 95\% & 1.51 / 95\% & 1.29 / 95\% & 1.63 / 95\% & 1.38 / 95\% & 1.27 / 95\% & 1.33 / 94\% \\
+G=60, D=5 & 0.80 / 95\% & 1.32 / 95\% & 1.15 / 95\% & 1.38 / 95\% & 1.12 / 95\% & 1.11 / 95\% & 1.10 / 94\% \\
+G=0, D=10 & 1.07 / 90\% & 1.73 / 93\% & 1.50 / 94\% & 1.70 / 94\% & 1.60 / 93\% & 1.53 / 93\% & 1.58 / 91\% \\
+G=0, D=15 & 0.89 / 84\% & 1.13 / 93\% & 1.07 / 89\% & 1.13 / 90\% & 1.20 / 90\% & 1.09 / 90\% & 1.09 / 87\% \\
+\bottomrule
+\end{tabular}}
+\end{table*}

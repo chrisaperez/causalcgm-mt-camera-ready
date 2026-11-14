@@ -1,0 +1,17 @@
+\begin{table*}[t]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\caption{Adaptation budget: mean paired $\Delta$RMSE (mg/dL) as a function of the number of gradient steps, at a 24 h prefix and PH = 30 min. For LoRA at both ranks the damage grows with every increase in the budget; head-only fine-tuning is not monotone.}
+\label{tab:step_budget}
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
+\begin{tabular}{lrrrrr}
+\toprule
+Adaptation & 10 steps & 25 steps & 50 steps & 100 steps & 200 steps \\
+\midrule
+lora (r=4) & -0.018 & +0.378 & +1.078 & +1.873 & +2.834 \\
+lora (r=8) & -0.055 & +0.240 & +0.886 & +1.726 & +2.522 \\
+head\_only & \textbf{-0.221} & \textbf{-0.287} & \textbf{-0.111} & \textbf{+0.225} & \textbf{+0.701} \\
+\bottomrule
+\end{tabular}}
+\end{table*}

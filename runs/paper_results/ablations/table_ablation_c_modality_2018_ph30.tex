@@ -1,0 +1,20 @@
+\begin{table*}[t]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\caption{Ablation C: modality contribution, 2018 cohort ($n = 6$ subjects) (PH = 30 min). Scored only on the subjects whose device carries the arm's sensors, against a CGM-only control drawn from the same subjects. Not comparable across cohorts. All ablation arms share one budget (20 epochs, fit split subsampled $2\times$), lighter than Table~\ref{tab:sota_ph30}'s (30 epochs, full fit split); rows here compare to each other, not to Table~\ref{tab:sota_ph30}.}
+\label{tab:ablation_c_modality_2018_ph30}
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
+\begin{tabular}{lrrrrrrr}
+\toprule
+Arm & RMSE & MAE & PR-AUC & Se@5\% & A+B (\%) & D+E ($n$) & $n$ test \\
+\midrule
+CGM only & 18.95 & 13.06 & 0.857 & 0.965 & 99.33 & 95 & 14618 \\
+CGM + HR & 19.21 & 13.19 & 0.848 & \textbf{0.976} & \textbf{99.37} & \textbf{90} & 14618 \\
+CGM + GSR & 19.14 & 13.15 & 0.835 & 0.965 & 99.36 & 91 & 14618 \\
+CGM + steps & 18.90 & 12.91 & 0.865 & 0.967 & 99.36 & 91 & 14618 \\
+CGM + treatment & \textbf{18.61} & \textbf{12.72} & 0.850 & 0.965 & 99.32 & 97 & 14618 \\
+CGM + all auxiliary (incl. treatment) & 18.68 & 12.82 & \textbf{0.879} & 0.967 & 99.30 & 101 & 14618 \\
+\bottomrule
+\end{tabular}}
+\end{table*}

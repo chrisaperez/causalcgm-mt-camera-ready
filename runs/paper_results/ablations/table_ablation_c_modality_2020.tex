@@ -1,0 +1,39 @@
+\begin{table*}[t]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\caption{Ablation C: modality contribution, 2020 cohort ($n = 6$ subjects) (PH = 30 min). Scored only on the subjects whose device carries the arm's sensors, against a CGM-only control drawn from the same subjects. Not comparable across cohorts. All ablation arms share one budget (20 epochs, fit split subsampled $2\times$), lighter than Table~\ref{tab:sota_ph30}'s (30 epochs, full fit split); rows here compare to each other, not to Table~\ref{tab:sota_ph30}.}
+\label{tab:ablation_c_modality_2020_ph30}
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
+\begin{tabular}{lrrrrrrr}
+\toprule
+Arm & RMSE & MAE & PR-AUC & Se@5\% & A+B (\%) & D+E ($n$) & $n$ test \\
+\midrule
+CGM only & 19.56 & 13.72 & 0.845 & 0.933 & 99.37 & 86 & 13717 \\
+CGM + accel & 19.54 & 13.65 & 0.833 & 0.931 & 99.37 & 87 & 13717 \\
+CGM + GSR & 19.47 & 13.64 & 0.831 & \textbf{0.937} & 99.40 & 81 & 13717 \\
+CGM + treatment & \textbf{18.54} & \textbf{13.03} & \textbf{0.849} & 0.936 & \textbf{99.44} & \textbf{77} & 13717 \\
+CGM + all auxiliary (incl. treatment) & 18.62 & 13.15 & 0.844 & 0.936 & 99.20 & 110 & 13717 \\
+\bottomrule
+\end{tabular}}
+\end{table*}
+
+\begin{table*}[t]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\caption{Ablation C: modality contribution, 2020 cohort ($n = 6$ subjects) (PH = 60 min). Scored only on the subjects whose device carries the arm's sensors, against a CGM-only control drawn from the same subjects. Not comparable across cohorts. All ablation arms share one budget (20 epochs, fit split subsampled $2\times$), lighter than Table~\ref{tab:sota_ph30}'s (30 epochs, full fit split); rows here compare to each other, not to Table~\ref{tab:sota_ph30}.}
+\label{tab:ablation_c_modality_2020_ph60}
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
+\begin{tabular}{lrrrrrrr}
+\toprule
+Arm & RMSE & MAE & PR-AUC & Se@5\% & A+B (\%) & D+E ($n$) & $n$ test \\
+\midrule
+CGM only & 34.94 & 25.14 & 0.755 & 0.791 & 97.40 & 311 & 13717 \\
+CGM + accel & 35.05 & 24.94 & 0.755 & 0.814 & 97.41 & 310 & 13717 \\
+CGM + GSR & 34.99 & 25.02 & 0.752 & 0.792 & 97.62 & 285 & 13717 \\
+CGM + treatment & \textbf{32.70} & \textbf{23.34} & 0.753 & 0.787 & \textbf{97.79} & \textbf{284} & 13717 \\
+CGM + all auxiliary (incl. treatment) & 32.84 & 23.58 & \textbf{0.756} & \textbf{0.816} & 97.67 & 296 & 13717 \\
+\bottomrule
+\end{tabular}}
+\end{table*}

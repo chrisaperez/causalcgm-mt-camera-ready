@@ -1,0 +1,19 @@
+\begin{table*}[t]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\caption{Ablation B: asymmetric hypoglycemia cost (PH = 30 min). $\kappa$ multiplies the regression loss when the reference is hypoglycemic and the prediction sits above it; $\kappa = 1$ is a no-op. All ablation arms share one budget (20 epochs, fit split subsampled $2\times$), lighter than Table~\ref{tab:sota_ph30}'s (30 epochs, full fit split); rows here compare to each other, not to Table~\ref{tab:sota_ph30}.}
+\label{tab:ablation_b_asymmetry_ph30}
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
+\begin{tabular}{lrrrrrrr}
+\toprule
+Arm & RMSE & RMSE $<$70 & Bias $<$70 & D+E ($n$) & A+B (\%) & PR-AUC & Se@5\% \\
+\midrule
+$\kappa$ = 1 & \textbf{18.24} & 15.28 & +9.98 & 258 & 99.08 & \textbf{0.868} & \textbf{0.959} \\
+$\kappa$ = 2 & 18.35 & 13.98 & +7.83 & 211 & 99.24 & 0.863 & 0.958 \\
+$\kappa$ = 3 & 18.49 & 12.97 & +6.70 & 179 & 99.36 & 0.865 & 0.959 \\
+$\kappa$ = 5 & 18.67 & 11.63 & +4.45 & 147 & 99.47 & 0.855 & 0.946 \\
+$\kappa$ = 8 & 18.90 & \textbf{11.06} & +3.07 & \textbf{119} & \textbf{99.57} & 0.856 & 0.946 \\
+\bottomrule
+\end{tabular}}
+\end{table*}

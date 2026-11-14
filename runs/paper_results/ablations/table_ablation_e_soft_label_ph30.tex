@@ -1,0 +1,19 @@
+\begin{table*}[t]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\caption{Ablation E: the soft-label boundary band (PH = 30 min). The band column is each arm's \emph{realised} band. The estimated arm derives it from the fold's MARD against paired capillary reference BG; a band below the device specification falls back to the specification, and \texttt{soft\_label.band\_source} in the JSON records which happened. All ablation arms share one budget (20 epochs, fit split subsampled $2\times$), lighter than Table~\ref{tab:sota_ph30}'s (30 epochs, full fit split); rows here compare to each other, not to Table~\ref{tab:sota_ph30}.}
+\label{tab:ablation_e_soft_label_ph30}
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
+\begin{tabular}{lrrrrrrrr}
+\toprule
+Arm & Band (mg/dL) & PR-AUC & ROC-AUC & Se@5\% & FAPD@5\% & Onset lead (min) & RMSE & A+B (\%) \\
+\midrule
+Hard labels & -- & 0.850 & 0.9899 & \textbf{0.962} & 3.05 & \textbf{26.9} & 18.50 & 99.34 \\
+Fixed $\pm$5 mg/dL & 5.00 & \textbf{0.865} & 0.9911 & 0.960 & 2.98 & 26.9 & 18.54 & 99.39 \\
+Fixed $\pm$10 mg/dL & 10.00 & 0.865 & \textbf{0.9912} & 0.959 & 2.87 & 26.4 & 18.49 & 99.36 \\
+Fixed $\pm$20 mg/dL & 20.00 & 0.854 & 0.9899 & 0.955 & 2.50 & 26.2 & \textbf{18.42} & 99.38 \\
+Estimated (MARD) & 7.24 & 0.864 & 0.9909 & 0.957 & 2.84 & 26.7 & 18.49 & \textbf{99.40} \\
+\bottomrule
+\end{tabular}}
+\end{table*}

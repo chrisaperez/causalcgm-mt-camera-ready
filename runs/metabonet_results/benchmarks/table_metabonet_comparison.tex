@@ -1,0 +1,17 @@
+% causalcgm-mt-provenance: fingerprint=bc8b1ec3d72b4329 smoke=false generated=2026-10-06T21:08:00
+\begin{table*}[t]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\caption{MetaboNet benchmark at PH~=~30~min, 5-fold patient-wise cross validation over 1838 subjects from 11 source studies (AZT1D, BrisT1D, CTR3, DCLP3, DCLP5, Flair, IOBP2, Loop, PEDAP, ReplaceBG, T1D-UOM). Whole subjects are held out, so the protocol measures generalisation to an unseen individual; MetaboNet's own \texttt{is\_test} column is a within-subject temporal split and is not used here. OhioT1DM and HUPA-UCM are excluded from the corpus, since both are benchmarks reported elsewhere in this work. Values are means over folds.}
+\label{tab:metabonet_comparison}
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
+\begin{tabular}{lrrrrrrrrrrrr}
+\toprule
+Model & RMSE & MAE & MARD (\%) & Lag (min) & A+B (\%) & D+E ($n$) & Parkes A+B (\%) & PR-AUC & Se@5\% & Se@10\% & FAPD@5\% & Onset lead (min) \\
+\midrule
+cgm\_only & 23.38 & 16.08 & 11.37 & \textbf{22.0} & 98.55 & 2016 & 99.38 & 0.820 & 0.875 & 0.941 & 3.87 & \textbf{22.3} \\
+fusion & \textbf{23.08} & \textbf{15.87} & \textbf{11.22} & 22.5 & \textbf{98.58} & \textbf{1970} & \textbf{99.40} & \textbf{0.822} & \textbf{0.875} & \textbf{0.942} & 3.58 & 22.3 \\
+\bottomrule
+\end{tabular}}
+\end{table*}

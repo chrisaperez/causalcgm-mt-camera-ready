@@ -1,0 +1,21 @@
+\begin{table*}[t]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\caption{Fusion minus each arm at $\PH = 60$~min, seed-mean difference with a 95\% subject-cluster bootstrap CI (12 subjects resampled, 1000 draws). A CI spanning 0 is not a resolved difference.}
+\label{tab:multiseed_diffs_ph60}
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
+\begin{tabular}{lrrrrr}
+\toprule
+vs.\ arm & $\Delta$RMSE & $\Delta$PR-AUC & $\Delta$PR-AUC (onset) & $\Delta$FAPD & $\Delta$(D+E) \\
+\midrule
+Persistence & -6.31 [-7.77, -5.04] & +0.050 [-0.003, +0.095] & +0.101 [-0.014, +0.200] & +1.59 [+1.10, +2.06] & -83 [-171, +11] \\
+Ridge-AR & -1.97 [-2.92, -1.01] & +0.071 [+0.036, +0.110] & +0.036 [-0.024, +0.099] & -0.88 [-1.61, -0.33] & -370 [-649, -170] \\
+ARIMA(4,1,0) & -4.70 [-5.78, -3.66] & +0.022 [-0.020, +0.063] & +0.049 [-0.041, +0.139] & +0.51 [+0.01, +0.91] & +6 [-66, +98] \\
+LightGBM & -0.27 [-1.00, +0.50] & +0.018 [-0.015, +0.047] & -0.019 [-0.080, +0.040] & -0.92 [-1.66, -0.40] & -203 [-315, -106] \\
+Dilated LSTM (CGM) & -1.45 [-2.32, -0.59] & +0.000 [-0.022, +0.016] & +0.004 [-0.035, +0.032] & -0.40 [-0.91, -0.01] & -26 [-73, +31] \\
+CausalCGM-MT (CGM) & -1.47 [-2.20, -0.77] & +0.000 [-0.023, +0.016] & +0.012 [-0.040, +0.047] & -0.25 [-0.71, +0.15] & -73 [-120, -23] \\
+CausalCGM-MT + LoRA (r=4) & -5.77 [-7.14, -4.57] & +0.210 [+0.142, +0.268] & +0.175 [+0.132, +0.220] & +1.06 [+0.18, +2.01] & -242 [-375, -129] \\
+\bottomrule
+\end{tabular}}
+\end{table*}

@@ -1,0 +1,37 @@
+\begin{table*}[t]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\caption{Ablation F: is the endpoint baseline handicapped by its risk mapping? (PH = 30 min). Classification metrics only. Persistence, Ridge-AR and ARIMA have no classification head and score hypoglycemia through $\sigma((70 - \hat{y})/\tau)$, a strictly monotone map of their forecast; the label is the window \emph{minimum}, which an endpoint forecast does not target. The nadir arms are the identical Ridge-AR fitted to $\min g$ over $(t, t+\mathrm{PH}]$ instead of $g(t+\mathrm{PH})$ and mapped the same way, so the difference between the two rows is the target alone. LightGBM and every neural arm fit a classifier on the nadir label directly and are shown for reference, not as part of the contrast. All ablation arms share one budget (20 epochs, fit split subsampled $2\times$), lighter than Table~\ref{tab:sota_ph30}'s (30 epochs, full fit split); rows here compare to each other, not to Table~\ref{tab:sota_ph30}.}
+\label{tab:ablation_f_nadir_target_ph30}
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
+\begin{tabular}{lrrrrr}
+\toprule
+Arm & PR-AUC & ROC-AUC & Se@5\% & FAPD@5\% & Onset lead (min) \\
+\midrule
+Ridge-AR, level target & 0.829 & 0.9900 & 0.964 & 2.99 & 26.4 \\
+Ridge-AR, nadir target & 0.861 & 0.9900 & 0.962 & 2.25 & 26.0 \\
+LightGBM (native nadir classifier) & 0.841 & \textbf{0.9916} & \textbf{0.968} & 2.90 & \textbf{27.1} \\
+CausalCGM-MT (native nadir head) & \textbf{0.865} & 0.9912 & 0.959 & 2.87 & 26.4 \\
+\bottomrule
+\end{tabular}}
+\end{table*}
+
+\begin{table*}[t]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\caption{Ablation F: is the endpoint baseline handicapped by its risk mapping? (PH = 60 min). Classification metrics only. Persistence, Ridge-AR and ARIMA have no classification head and score hypoglycemia through $\sigma((70 - \hat{y})/\tau)$, a strictly monotone map of their forecast; the label is the window \emph{minimum}, which an endpoint forecast does not target. The nadir arms are the identical Ridge-AR fitted to $\min g$ over $(t, t+\mathrm{PH}]$ instead of $g(t+\mathrm{PH})$ and mapped the same way, so the difference between the two rows is the target alone. LightGBM and every neural arm fit a classifier on the nadir label directly and are shown for reference, not as part of the contrast. All ablation arms share one budget (20 epochs, fit split subsampled $2\times$), lighter than Table~\ref{tab:sota_ph30}'s (30 epochs, full fit split); rows here compare to each other, not to Table~\ref{tab:sota_ph30}.}
+\label{tab:ablation_f_nadir_target_ph60}
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
+\begin{tabular}{lrrrrr}
+\toprule
+Arm & PR-AUC & ROC-AUC & Se@5\% & FAPD@5\% & Onset lead (min) \\
+\midrule
+Ridge-AR, level target & 0.702 & 0.9650 & 0.864 & 3.72 & 45.1 \\
+Ridge-AR, nadir target & 0.757 & 0.9640 & 0.840 & 2.68 & 42.0 \\
+LightGBM (native nadir classifier) & 0.755 & \textbf{0.9718} & \textbf{0.867} & 3.76 & \textbf{46.0} \\
+CausalCGM-MT (native nadir head) & \textbf{0.772} & 0.9714 & 0.849 & 3.37 & 43.5 \\
+\bottomrule
+\end{tabular}}
+\end{table*}

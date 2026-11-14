@@ -1,0 +1,2093 @@
+{
+ "seeds": [
+  "seed123",
+  "seed1337",
+  "seed42",
+  "seed456",
+  "seed789"
+ ],
+ "n_boot": 1000,
+ "threshold": "per seed, fitted on the calibration split at 5% FPR (not refitted)",
+ "policies": [
+  {
+   "latch_gap_min": 0,
+   "min_duration_min": 5
+  },
+  {
+   "latch_gap_min": 5,
+   "min_duration_min": 5
+  },
+  {
+   "latch_gap_min": 15,
+   "min_duration_min": 5
+  },
+  {
+   "latch_gap_min": 30,
+   "min_duration_min": 5
+  },
+  {
+   "latch_gap_min": 60,
+   "min_duration_min": 5
+  },
+  {
+   "latch_gap_min": 0,
+   "min_duration_min": 10
+  },
+  {
+   "latch_gap_min": 0,
+   "min_duration_min": 15
+  }
+ ],
+ "results": {
+  "30": {
+   "G0_D5": {
+    "Persistence": {
+     "fapd": 1.1587083112758072,
+     "true_apd": 0.7216516675489677,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 23.7012987012987,
+     "fapd_sd": 0.0,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": 1.311169931180519,
+     "diff_fapd_vs_fusion_ci95": [
+      0.899183867405678,
+      1.7269169174274113
+     ],
+     "diff_onset_det_vs_fusion": -0.007407407407407529,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.02813616071428567,
+      0.0
+     ]
+    },
+    "Ridge-AR": {
+     "fapd": 2.988247750132345,
+     "true_apd": 0.7928004235044998,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 26.428571428571427,
+     "fapd_sd": 0.0,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": -0.5183695076760189,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.9873439822577185,
+      -0.08425967545444457
+     ],
+     "diff_onset_det_vs_fusion": -0.007407407407407529,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.02813616071428567,
+      0.0
+     ]
+    },
+    "ARIMA(4,1,0)": {
+     "fapd": 2.0531498147167815,
+     "true_apd": 0.75214399152991,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 25.779220779220783,
+     "fapd_sd": 0.0,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 3.972054645195637e-15,
+     "diff_fapd_vs_fusion": 0.41672842773954466,
+     "diff_fapd_vs_fusion_ci95": [
+      0.12124820962493782,
+      0.7345405631516682
+     ],
+     "diff_onset_det_vs_fusion": -0.007407407407407529,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.02813616071428567,
+      0.0
+     ]
+    },
+    "LightGBM": {
+     "fapd": 2.8967707781895182,
+     "true_apd": 0.8131286394917947,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 27.142857142857146,
+     "fapd_sd": 0.0,
+     "true_apd_sd": 1.2412670766236366e-16,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 3.972054645195637e-15,
+     "diff_fapd_vs_fusion": -0.4268925357331921,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.8836142042351163,
+      -0.14859560998662258
+     ],
+     "diff_onset_det_vs_fusion": -0.007407407407407529,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.02813616071428567,
+      0.0
+     ]
+    },
+    "Dilated LSTM (CGM)": {
+     "fapd": 2.6101429327686607,
+     "true_apd": 0.7765378507146637,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 26.428571428571427,
+     "fapd_sd": 0.2090942549208909,
+     "true_apd_sd": 0.021076742931915964,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.22494166332063312,
+     "diff_fapd_vs_fusion": -0.14026469031233457,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.5291934803674605,
+      0.1139447557991665
+     ],
+     "diff_onset_det_vs_fusion": -0.007407407407407529,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.02813616071428567,
+      0.0
+     ]
+    },
+    "CausalCGM-MT (CGM)": {
+     "fapd": 2.6386024351508732,
+     "true_apd": 0.7643409211222869,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 25.961038961038962,
+     "fapd_sd": 0.1857002279969493,
+     "true_apd_sd": 0.018182109123555706,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.6285633787184444,
+     "diff_fapd_vs_fusion": -0.16872419269454708,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.5381839617115838,
+      0.13512412318548828
+     ],
+     "diff_onset_det_vs_fusion": -0.007407407407407529,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.02813616071428567,
+      0.0
+     ]
+    },
+    "CausalCGM-MT (fusion)": {
+     "fapd": 2.469878242456326,
+     "true_apd": 0.7907676019057701,
+     "onset_det": 0.9432098765432098,
+     "onset_lead": 26.20290954659376,
+     "fapd_sd": 0.20366295725922007,
+     "true_apd_sd": 0.0421534858638319,
+     "onset_det_sd": 0.011042310999998967,
+     "onset_lead_sd": 0.20001952572920634
+    },
+    "_fapd_rank": [
+     "Persistence",
+     "ARIMA(4,1,0)",
+     "CausalCGM-MT (fusion)",
+     "Dilated LSTM (CGM)",
+     "CausalCGM-MT (CGM)",
+     "LightGBM",
+     "Ridge-AR"
+    ]
+   },
+   "G5_D5": {
+    "Persistence": {
+     "fapd": 1.057067231339333,
+     "true_apd": 0.7114875595553203,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 23.7012987012987,
+     "fapd_sd": 0.0,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": 0.7887347803070406,
+     "diff_fapd_vs_fusion_ci95": [
+      0.5212750134899234,
+      1.049959916223844
+     ],
+     "diff_onset_det_vs_fusion": -0.007407407407407529,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.02813616071428567,
+      0.0
+     ]
+    },
+    "Ridge-AR": {
+     "fapd": 2.21577554261514,
+     "true_apd": 0.7419798835362625,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 26.493506493506494,
+     "fapd_sd": 0.0,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": -0.3699735309687666,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.6585223111609246,
+      -0.12236581189603922
+     ],
+     "diff_onset_det_vs_fusion": -0.007407407407407529,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.02813616071428567,
+      0.0
+     ]
+    },
+    "ARIMA(4,1,0)": {
+     "fapd": 1.7583906829010059,
+     "true_apd": 0.7216516675489677,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 25.779220779220783,
+     "fapd_sd": 2.482534153247273e-16,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 3.972054645195637e-15,
+     "diff_fapd_vs_fusion": 0.08741132874536772,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.1329090531469427,
+      0.28179039674624007
+     ],
+     "diff_onset_det_vs_fusion": -0.007407407407407529,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.02813616071428567,
+      0.0
+     ]
+    },
+    "LightGBM": {
+     "fapd": 2.439385918475384,
+     "true_apd": 0.7623080995235574,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 27.272727272727273,
+     "fapd_sd": 0.0,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": -0.5935839068290103,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.8860431314041807,
+      -0.3778434080062724
+     ],
+     "diff_onset_det_vs_fusion": -0.007407407407407529,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.02813616071428567,
+      0.0
+     ]
+    },
+    "Dilated LSTM (CGM)": {
+     "fapd": 2.0145262043409207,
+     "true_apd": 0.7216516675489677,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 26.61038961038961,
+     "fapd_sd": 0.14806143716459452,
+     "true_apd_sd": 0.016070865821925042,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.21731429260625393,
+     "diff_fapd_vs_fusion": -0.16872419269454708,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.3997754953996137,
+      -0.0019736425935689542
+     ],
+     "diff_onset_det_vs_fusion": -0.007407407407407529,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.02813616071428567,
+      0.0
+     ]
+    },
+    "CausalCGM-MT (CGM)": {
+     "fapd": 1.904753838009529,
+     "true_apd": 0.7216516675489677,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 26.1038961038961,
+     "fapd_sd": 0.10255176982872856,
+     "true_apd_sd": 0.012448439137489931,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.6477252384175329,
+     "diff_fapd_vs_fusion": -0.058951826363155435,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.3025207946752298,
+      0.1449304363887896
+     ],
+     "diff_onset_det_vs_fusion": -0.007407407407407529,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.02813616071428567,
+      0.0
+     ]
+    },
+    "CausalCGM-MT (fusion)": {
+     "fapd": 1.8458020116463736,
+     "true_apd": 0.7419798835362625,
+     "onset_det": 0.9432098765432098,
+     "onset_lead": 26.35978810663021,
+     "fapd_sd": 0.1595149810795142,
+     "true_apd_sd": 0.032141731643850126,
+     "onset_det_sd": 0.011042310999998967,
+     "onset_lead_sd": 0.2442486532909333
+    },
+    "_fapd_rank": [
+     "Persistence",
+     "ARIMA(4,1,0)",
+     "CausalCGM-MT (fusion)",
+     "CausalCGM-MT (CGM)",
+     "Dilated LSTM (CGM)",
+     "Ridge-AR",
+     "LightGBM"
+    ]
+   },
+   "G15_D5": {
+    "Persistence": {
+     "fapd": 1.0062466913710957,
+     "true_apd": 0.7013234515616729,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 23.7012987012987,
+     "fapd_sd": 0.0,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": 0.5102382212811012,
+     "diff_fapd_vs_fusion_ci95": [
+      0.30246579161437287,
+      0.7103903427980207
+     ],
+     "diff_onset_det_vs_fusion": -0.007407407407407529,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.02813616071428567,
+      0.0
+     ]
+    },
+    "Ridge-AR": {
+     "fapd": 1.687241926945474,
+     "true_apd": 0.7114875595553203,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 26.68831168831169,
+     "fapd_sd": 2.482534153247273e-16,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": -0.17075701429327705,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.3428397003865585,
+      -0.001974812154040812
+     ],
+     "diff_onset_det_vs_fusion": -0.007407407407407529,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.02813616071428567,
+      0.0
+     ]
+    },
+    "ARIMA(4,1,0)": {
+     "fapd": 1.4737956590788777,
+     "true_apd": 0.7013234515616729,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 25.844155844155843,
+     "fapd_sd": 0.0,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": 0.04268925357331921,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.1281214763635751,
+      0.22048223163936065
+     ],
+     "diff_onset_det_vs_fusion": -0.007407407407407529,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.02813616071428567,
+      0.0
+     ]
+    },
+    "LightGBM": {
+     "fapd": 1.9921651667548967,
+     "true_apd": 0.7013234515616729,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 27.46753246753247,
+     "fapd_sd": 0.0,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 3.972054645195637e-15,
+     "diff_fapd_vs_fusion": -0.4756802541026999,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.6859486755086326,
+      -0.3191978860471824
+     ],
+     "diff_onset_det_vs_fusion": -0.007407407407407529,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.02813616071428567,
+      0.0
+     ]
+    },
+    "Dilated LSTM (CGM)": {
+     "fapd": 1.6282901005823185,
+     "true_apd": 0.6870937003705664,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 26.792207792207797,
+     "fapd_sd": 0.11861997401765459,
+     "true_apd_sd": 0.005567111225039267,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.15638434517912167,
+     "diff_fapd_vs_fusion": -0.11180518793012162,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.2947729860572683,
+      0.03551865252575143
+     ],
+     "diff_onset_det_vs_fusion": -0.007407407407407529,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.02813616071428567,
+      0.0
+     ]
+    },
+    "CausalCGM-MT (CGM)": {
+     "fapd": 1.5469772366331391,
+     "true_apd": 0.6830280571731074,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 26.324675324675326,
+     "fapd_sd": 0.08901576996920647,
+     "true_apd_sd": 0.004545527280888926,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.6388765649999393,
+     "diff_fapd_vs_fusion": -0.03049232398094226,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.21739482579522112,
+      0.14178719969617762
+     ],
+     "diff_onset_det_vs_fusion": -0.007407407407407529,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.02813616071428567,
+      0.0
+     ]
+    },
+    "CausalCGM-MT (fusion)": {
+     "fapd": 1.5164849126521969,
+     "true_apd": 0.6972578083642139,
+     "onset_det": 0.9432098765432098,
+     "onset_lead": 26.67285258601048,
+     "fapd_sd": 0.12013442493940656,
+     "true_apd_sd": 0.015414632983143467,
+     "onset_det_sd": 0.011042310999998967,
+     "onset_lead_sd": 0.3129611623799662
+    },
+    "_fapd_rank": [
+     "Persistence",
+     "ARIMA(4,1,0)",
+     "CausalCGM-MT (fusion)",
+     "CausalCGM-MT (CGM)",
+     "Dilated LSTM (CGM)",
+     "Ridge-AR",
+     "LightGBM"
+    ]
+   },
+   "G30_D5": {
+    "Persistence": {
+     "fapd": 0.9046056114346215,
+     "true_apd": 0.6809952355743779,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 23.7012987012987,
+     "fapd_sd": 0.0,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": 0.4207940709370037,
+     "diff_fapd_vs_fusion_ci95": [
+      0.22902417887086352,
+      0.6028638020851786
+     ],
+     "diff_onset_det_vs_fusion": -0.007407407407407529,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.02813616071428567,
+      0.0
+     ]
+    },
+    "Ridge-AR": {
+     "fapd": 1.5144520910534673,
+     "true_apd": 0.6911593435680253,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 26.948051948051948,
+     "fapd_sd": 0.0,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": -0.18905240868184214,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.3615206374978292,
+      -0.032944979705503516
+     ],
+     "diff_onset_det_vs_fusion": -0.007407407407407529,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.02813616071428567,
+      0.0
+     ]
+    },
+    "ARIMA(4,1,0)": {
+     "fapd": 1.2908417151932239,
+     "true_apd": 0.6809952355743779,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 26.038961038961038,
+     "fapd_sd": 0.0,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": 0.034557967178401316,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.1347040811772531,
+      0.20861208303530834
+     ],
+     "diff_onset_det_vs_fusion": -0.007407407407407529,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.02813616071428567,
+      0.0
+     ]
+    },
+    "LightGBM": {
+     "fapd": 1.6262572789835894,
+     "true_apd": 0.6809952355743779,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 27.727272727272727,
+     "fapd_sd": 2.482534153247273e-16,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": -0.3008575966119642,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.4141474904502251,
+      -0.18019260616607727
+     ],
+     "diff_onset_det_vs_fusion": -0.007407407407407529,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.02813616071428567,
+      0.0
+     ]
+    },
+    "Dilated LSTM (CGM)": {
+     "fapd": 1.3782530439385918,
+     "true_apd": 0.6789624139756485,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 27.142857142857146,
+     "fapd_sd": 0.0792539762500083,
+     "true_apd_sd": 0.0045455272808889256,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.14519921931816787,
+     "diff_fapd_vs_fusion": -0.05285336156696663,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.18213439711248544,
+      0.06287312392077679
+     ],
+     "diff_onset_det_vs_fusion": -0.007407407407407529,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.02813616071428567,
+      0.0
+     ]
+    },
+    "CausalCGM-MT (CGM)": {
+     "fapd": 1.2725463208046586,
+     "true_apd": 0.6748967707781894,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 26.5974025974026,
+     "fapd_sd": 0.07720708884802381,
+     "true_apd_sd": 0.005567111225039267,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.5063269789511142,
+     "diff_fapd_vs_fusion": 0.05285336156696663,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.10092705746445191,
+      0.1838246268793914
+     ],
+     "diff_onset_det_vs_fusion": -0.007407407407407529,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.02813616071428567,
+      0.0
+     ]
+    },
+    "CausalCGM-MT (fusion)": {
+     "fapd": 1.3253996823716252,
+     "true_apd": 0.6850608787718369,
+     "onset_det": 0.9432098765432098,
+     "onset_lead": 27.053609022556394,
+     "fapd_sd": 0.11713004450399082,
+     "true_apd_sd": 0.009091054561777853,
+     "onset_det_sd": 0.011042310999998967,
+     "onset_lead_sd": 0.3164011147834246
+    },
+    "_fapd_rank": [
+     "Persistence",
+     "CausalCGM-MT (CGM)",
+     "ARIMA(4,1,0)",
+     "CausalCGM-MT (fusion)",
+     "Dilated LSTM (CGM)",
+     "Ridge-AR",
+     "LightGBM"
+    ]
+   },
+   "G60_D5": {
+    "Persistence": {
+     "fapd": 0.8029645314981473,
+     "true_apd": 0.6708311275807305,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 23.961038961038962,
+     "fapd_sd": 1.2412670766236366e-16,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": 0.300857596611964,
+     "diff_fapd_vs_fusion_ci95": [
+      0.14414768750375695,
+      0.453371304287529
+     ],
+     "diff_onset_det_vs_fusion": -0.007407407407407529,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.02813616071428567,
+      0.0
+     ]
+    },
+    "Ridge-AR": {
+     "fapd": 1.3213340391741661,
+     "true_apd": 0.6809952355743779,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 26.948051948051948,
+     "fapd_sd": 0.0,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": -0.21751191106405487,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.3723216356386027,
+      -0.0901162841699639
+     ],
+     "diff_onset_det_vs_fusion": -0.007407407407407529,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.02813616071428567,
+      0.0
+     ]
+    },
+    "ARIMA(4,1,0)": {
+     "fapd": 1.1485442032821598,
+     "true_apd": 0.6708311275807305,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 26.233766233766232,
+     "fapd_sd": 0.0,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": -0.044722075172048514,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.22373000807254417,
+      0.11871160911512223
+     ],
+     "diff_onset_det_vs_fusion": -0.007407407407407529,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.02813616071428567,
+      0.0
+     ]
+    },
+    "LightGBM": {
+     "fapd": 1.3823186871360507,
+     "true_apd": 0.6606670195870831,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 27.792207792207797,
+     "fapd_sd": 0.0,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 3.972054645195637e-15,
+     "diff_fapd_vs_fusion": -0.2784965590259394,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.40842766825349575,
+      -0.1613640312954852
+     ],
+     "diff_onset_det_vs_fusion": -0.007407407407407529,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.02813616071428567,
+      0.0
+     ]
+    },
+    "Dilated LSTM (CGM)": {
+     "fapd": 1.120084700899947,
+     "true_apd": 0.6667654843832715,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 27.233766233766232,
+     "fapd_sd": 0.03896977857527487,
+     "true_apd_sd": 0.011588866152410494,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.2032789070454356,
+     "diff_fapd_vs_fusion": -0.016262572789835783,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.12061751185417885,
+      0.08994419579703145
+     ],
+     "diff_onset_det_vs_fusion": -0.007407407407407529,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.02813616071428567,
+      0.0
+     ]
+    },
+    "CausalCGM-MT (CGM)": {
+     "fapd": 1.1139862361037587,
+     "true_apd": 0.6667654843832715,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 26.675324675324674,
+     "fapd_sd": 0.07172721064606566,
+     "true_apd_sd": 0.009091054561777853,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.4365645795836774,
+     "diff_fapd_vs_fusion": -0.01016410799364742,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.1395001119934717,
+      0.09972989463913155
+     ],
+     "diff_onset_det_vs_fusion": -0.007407407407407529,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.02813616071428567,
+      0.0
+     ]
+    },
+    "CausalCGM-MT (fusion)": {
+     "fapd": 1.1038221281101113,
+     "true_apd": 0.6708311275807305,
+     "onset_det": 0.9432098765432098,
+     "onset_lead": 27.15958304853042,
+     "fapd_sd": 0.11194370359909397,
+     "true_apd_sd": 0.007187109687020485,
+     "onset_det_sd": 0.011042310999998967,
+     "onset_lead_sd": 0.26171623509286707
+    },
+    "_fapd_rank": [
+     "Persistence",
+     "CausalCGM-MT (fusion)",
+     "CausalCGM-MT (CGM)",
+     "Dilated LSTM (CGM)",
+     "ARIMA(4,1,0)",
+     "Ridge-AR",
+     "LightGBM"
+    ]
+   },
+   "G0_D10": {
+    "Persistence": {
+     "fapd": 1.0672313393329804,
+     "true_apd": 0.7013234515616729,
+     "onset_det": 0.9012345679012345,
+     "onset_lead": 22.465753424657535,
+     "fapd_sd": 0.0,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 1.2412670766236366e-16,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": 0.510238221281101,
+     "diff_fapd_vs_fusion_ci95": [
+      0.26289684768156957,
+      0.7689309308898769
+     ],
+     "diff_onset_det_vs_fusion": 0.00740740740740764,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.055707306240284436,
+      0.05527046783625748
+     ]
+    },
+    "Ridge-AR": {
+     "fapd": 1.7278983589200636,
+     "true_apd": 0.75214399152991,
+     "onset_det": 0.9259259259259259,
+     "onset_lead": 25.066666666666666,
+     "fapd_sd": 2.482534153247273e-16,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": -0.15042879830598221,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.42832498946458625,
+      0.08394661499480546
+     ],
+     "diff_onset_det_vs_fusion": -0.017283950617283828,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.06747232171930964,
+      0.021917808219177992
+     ]
+    },
+    "ARIMA(4,1,0)": {
+     "fapd": 1.50428798305982,
+     "true_apd": 0.7216516675489677,
+     "onset_det": 0.9382716049382716,
+     "onset_lead": 24.210526315789473,
+     "fapd_sd": 0.0,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": 0.07318157755426147,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.1813168974458343,
+      0.3446016178771363
+     ],
+     "diff_onset_det_vs_fusion": -0.02962962962962945,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.07324753116399547,
+      0.0
+     ]
+    },
+    "LightGBM": {
+     "fapd": 1.6974060349391213,
+     "true_apd": 0.7724722075172048,
+     "onset_det": 0.9382716049382716,
+     "onset_lead": 25.0,
+     "fapd_sd": 2.482534153247273e-16,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": -0.11993647432503995,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.27642961355855344,
+      0.033062017441750406
+     ],
+     "diff_onset_det_vs_fusion": -0.02962962962962945,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.07324753116399547,
+      0.0
+     ]
+    },
+    "Dilated LSTM (CGM)": {
+     "fapd": 1.5998305982001058,
+     "true_apd": 0.7277501323451562,
+     "onset_det": 0.9333333333333333,
+     "onset_lead": 24.670701754385966,
+     "fapd_sd": 0.07279942571219138,
+     "true_apd_sd": 0.009091054561777853,
+     "onset_det_sd": 0.006762006882779797,
+     "onset_lead_sd": 0.48313811449018335,
+     "diff_fapd_vs_fusion": -0.022361037586024368,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.20466090536192363,
+      0.1280292726622922
+     ],
+     "diff_onset_det_vs_fusion": -0.024691358024691246,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.06967573427951916,
+      0.0050665789906295415
+     ]
+    },
+    "CausalCGM-MT (CGM)": {
+     "fapd": 1.5307146638433031,
+     "true_apd": 0.7236844891476972,
+     "onset_det": 0.930864197530864,
+     "onset_lead": 24.134637268847793,
+     "fapd_sd": 0.06123822347543204,
+     "true_apd_sd": 0.020830222838160346,
+     "onset_det_sd": 0.011042310999998955,
+     "onset_lead_sd": 0.6379589540277606,
+     "diff_fapd_vs_fusion": 0.046754896770778265,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.09588518519837916,
+      0.20970563308379575
+     ],
+     "diff_onset_det_vs_fusion": -0.02222222222222192,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.06865671641791049,
+      0.0
+     ]
+    },
+    "CausalCGM-MT (fusion)": {
+     "fapd": 1.5774695606140814,
+     "true_apd": 0.7277501323451562,
+     "onset_det": 0.9086419753086421,
+     "onset_lead": 24.648044140030443,
+     "fapd_sd": 0.09759660966684161,
+     "true_apd_sd": 0.01541463298314342,
+     "onset_det_sd": 0.016563466499998458,
+     "onset_lead_sd": 0.31672308952349987
+    },
+    "_fapd_rank": [
+     "Persistence",
+     "ARIMA(4,1,0)",
+     "CausalCGM-MT (CGM)",
+     "CausalCGM-MT (fusion)",
+     "Dilated LSTM (CGM)",
+     "LightGBM",
+     "Ridge-AR"
+    ]
+   },
+   "G0_D15": {
+    "Persistence": {
+     "fapd": 0.8944415034409741,
+     "true_apd": 0.7013234515616729,
+     "onset_det": 0.8395061728395061,
+     "onset_lead": 21.25,
+     "fapd_sd": 0.0,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": 0.19718369507676026,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.01664345248258411,
+      0.3924702342576477
+     ],
+     "diff_onset_det_vs_fusion": 0.02716049382716046,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.08852845654191144,
+      0.1333561643835617
+     ]
+    },
+    "Ridge-AR": {
+     "fapd": 1.128215987294865,
+     "true_apd": 0.7419798835362625,
+     "onset_det": 0.9259259259259259,
+     "onset_lead": 22.6,
+     "fapd_sd": 0.0,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": -0.03659078877713062,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.20082326852223775,
+      0.11772429263780998
+     ],
+     "diff_onset_det_vs_fusion": -0.059259259259259345,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.1400096153846153,
+      0.006954022988505818
+     ]
+    },
+    "ARIMA(4,1,0)": {
+     "fapd": 1.0672313393329804,
+     "true_apd": 0.6911593435680253,
+     "onset_det": 0.888888888888889,
+     "onset_lead": 22.77777777777778,
+     "fapd_sd": 0.0,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 1.2412670766236366e-16,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": 0.024393859184753897,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.18824082017305876,
+      0.19966216730236405
+     ],
+     "diff_onset_det_vs_fusion": -0.022222222222222365,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.08852845654191144,
+      0.04263845813026142
+     ]
+    },
+    "LightGBM": {
+     "fapd": 1.128215987294865,
+     "true_apd": 0.7216516675489677,
+     "onset_det": 0.9012345679012345,
+     "onset_lead": 22.73972602739726,
+     "fapd_sd": 0.0,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 1.2412670766236366e-16,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": -0.03659078877713062,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.1875499343098791,
+      0.09117400642052262
+     ],
+     "diff_onset_det_vs_fusion": -0.03456790123456788,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.0809740259740259,
+      -0.008330479452054876
+     ]
+    },
+    "Dilated LSTM (CGM)": {
+     "fapd": 1.1973319216516676,
+     "true_apd": 0.6992906299629433,
+     "onset_det": 0.9012345679012345,
+     "onset_lead": 23.02668250442223,
+     "fapd_sd": 0.02630914122037699,
+     "true_apd_sd": 0.008503902863660312,
+     "onset_det_sd": 0.008729713347982067,
+     "onset_lead_sd": 0.4512600080967729,
+     "diff_fapd_vs_fusion": -0.10570672313393326,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.29204293925522745,
+      0.013744825451027764
+     ],
+     "diff_onset_det_vs_fusion": -0.03456790123456788,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.0784852794766036,
+      0.003032670454545578
+     ]
+    },
+    "CausalCGM-MT (CGM)": {
+     "fapd": 1.0916251985177343,
+     "true_apd": 0.7074219163578613,
+     "onset_det": 0.8987654320987654,
+     "onset_lead": 22.33451273190999,
+     "fapd_sd": 0.049062224036850365,
+     "true_apd_sd": 0.015414632983143448,
+     "onset_det_sd": 0.023747387730458466,
+     "onset_lead_sd": 0.6960069109898234,
+     "diff_fapd_vs_fusion": 0.0,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.14511184059446472,
+      0.13237427167080595
+     ],
+     "diff_onset_det_vs_fusion": -0.032098765432098775,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.11325750764251018,
+      0.013700991969768699
+     ]
+    },
+    "CausalCGM-MT (fusion)": {
+     "fapd": 1.0916251985177343,
+     "true_apd": 0.6972578083642139,
+     "onset_det": 0.8666666666666666,
+     "onset_lead": 22.826262148051708,
+     "fapd_sd": 0.09578020311118403,
+     "true_apd_sd": 0.013636581842666836,
+     "onset_det_sd": 0.018311601202705346,
+     "onset_lead_sd": 0.5593280751595527
+    },
+    "_fapd_rank": [
+     "Persistence",
+     "ARIMA(4,1,0)",
+     "CausalCGM-MT (CGM)",
+     "CausalCGM-MT (fusion)",
+     "Ridge-AR",
+     "LightGBM",
+     "Dilated LSTM (CGM)"
+    ]
+   }
+  },
+  "60": {
+   "G0_D5": {
+    "Persistence": {
+     "fapd": 1.2501852832186342,
+     "true_apd": 0.7216516675489677,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 35.77922077922078,
+     "fapd_sd": 0.0,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": 1.5937321334039176,
+     "diff_fapd_vs_fusion_ci95": [
+      1.1029934648873572,
+      2.058166583573961
+     ],
+     "diff_onset_det_vs_fusion": -0.012345679012345734,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.0366225926990513,
+      0.0
+     ]
+    },
+    "Ridge-AR": {
+     "fapd": 3.72006352567496,
+     "true_apd": 0.9960825833774484,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 45.064935064935064,
+     "fapd_sd": 0.0,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": -0.8761461090524083,
+     "diff_fapd_vs_fusion_ci95": [
+      -1.6060194660604987,
+      -0.3274550122573427
+     ],
+     "diff_onset_det_vs_fusion": -0.012345679012345734,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.0366225926990513,
+      0.0
+     ]
+    },
+    "ARIMA(4,1,0)": {
+     "fapd": 2.3377448385389092,
+     "true_apd": 0.8639491794600318,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 40.84415584415584,
+     "fapd_sd": 0.0,
+     "true_apd_sd": 1.2412670766236366e-16,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": 0.5061725780836426,
+     "diff_fapd_vs_fusion_ci95": [
+      0.012896614119984941,
+      0.9135206948192287
+     ],
+     "diff_onset_det_vs_fusion": -0.012345679012345734,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.0366225926990513,
+      0.0
+     ]
+    },
+    "LightGBM": {
+     "fapd": 3.76071995764955,
+     "true_apd": 1.0367390153520382,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 45.97402597402598,
+     "fapd_sd": 0.0,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": -0.916802541026998,
+     "diff_fapd_vs_fusion_ci95": [
+      -1.661821578671405,
+      -0.401875652327163
+     ],
+     "diff_onset_det_vs_fusion": -0.012345679012345734,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.0366225926990513,
+      0.0
+     ]
+    },
+    "Dilated LSTM (CGM)": {
+     "fapd": 3.24438327157226,
+     "true_apd": 0.9513605082053995,
+     "onset_det": 0.945679012345679,
+     "onset_lead": 44.66302118933698,
+     "fapd_sd": 0.27484469717157184,
+     "true_apd_sd": 0.02339953383989936,
+     "onset_det_sd": 0.006762006882779858,
+     "onset_lead_sd": 0.6778252987563157,
+     "diff_fapd_vs_fusion": -0.400465854949708,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.9115680492046354,
+      -0.007927505647642634
+     ],
+     "diff_onset_det_vs_fusion": -0.007407407407407418,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.03529411764705881,
+      0.012315789473684136
+     ]
+    },
+    "CausalCGM-MT (CGM)": {
+     "fapd": 3.0959872948650076,
+     "true_apd": 0.9350979354155637,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 43.05194805194806,
+     "fapd_sd": 0.1413140026662319,
+     "true_apd_sd": 0.030492323980942305,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 1.2962639466024095,
+     "diff_fapd_vs_fusion": -0.25206987824245575,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.7141889791439782,
+      0.1460844689400981
+     ],
+     "diff_onset_det_vs_fusion": -0.012345679012345734,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.0366225926990513,
+      0.0
+     ]
+    },
+    "CausalCGM-MT (fusion)": {
+     "fapd": 2.843917416622552,
+     "true_apd": 0.9066384330333509,
+     "onset_det": 0.9382716049382716,
+     "onset_lead": 43.85313511050354,
+     "fapd_sd": 0.31975773276978053,
+     "true_apd_sd": 0.04895682708582573,
+     "onset_det_sd": 0.008729713347982067,
+     "onset_lead_sd": 0.6666193042059742
+    },
+    "_fapd_rank": [
+     "Persistence",
+     "ARIMA(4,1,0)",
+     "CausalCGM-MT (fusion)",
+     "CausalCGM-MT (CGM)",
+     "Dilated LSTM (CGM)",
+     "Ridge-AR",
+     "LightGBM"
+    ]
+   },
+   "G5_D5": {
+    "Persistence": {
+     "fapd": 1.1587083112758072,
+     "true_apd": 0.7216516675489677,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 35.77922077922078,
+     "fapd_sd": 0.0,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": 0.9635574377977765,
+     "diff_fapd_vs_fusion_ci95": [
+      0.5918920241172694,
+      1.3260749307296107
+     ],
+     "diff_onset_det_vs_fusion": -0.012345679012345734,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.0366225926990513,
+      0.0
+     ]
+    },
+    "Ridge-AR": {
+     "fapd": 2.917098994176813,
+     "true_apd": 0.8537850714663844,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 45.12987012987013,
+     "fapd_sd": 0.0,
+     "true_apd_sd": 1.2412670766236366e-16,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": -0.7948332451032294,
+     "diff_fapd_vs_fusion_ci95": [
+      -1.3003313989460192,
+      -0.3577736597406393
+     ],
+     "diff_onset_det_vs_fusion": -0.012345679012345734,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.0366225926990513,
+      0.0
+     ]
+    },
+    "ARIMA(4,1,0)": {
+     "fapd": 1.9515087347803068,
+     "true_apd": 0.7826363155108522,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 40.84415584415584,
+     "fapd_sd": 0.0,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": 0.17075701429327683,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.16821468743496423,
+      0.45001414661393546
+     ],
+     "diff_onset_det_vs_fusion": -0.012345679012345734,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.0366225926990513,
+      0.0
+     ]
+    },
+    "LightGBM": {
+     "fapd": 3.1407093700370563,
+     "true_apd": 0.843620963472737,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 46.03896103896104,
+     "fapd_sd": 0.0,
+     "true_apd_sd": 1.2412670766236366e-16,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": -1.0184436209634726,
+     "diff_fapd_vs_fusion_ci95": [
+      -1.5863555409062382,
+      -0.5965293595423992
+     ],
+     "diff_onset_det_vs_fusion": -0.012345679012345734,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.0366225926990513,
+      0.0
+     ]
+    },
+    "Dilated LSTM (CGM)": {
+     "fapd": 2.5308628904182107,
+     "true_apd": 0.7968660667019586,
+     "onset_det": 0.945679012345679,
+     "onset_lead": 44.7670881749829,
+     "fapd_sd": 0.21284040156397077,
+     "true_apd_sd": 0.015414632983143464,
+     "onset_det_sd": 0.006762006882779858,
+     "onset_lead_sd": 0.6644234252335128,
+     "diff_fapd_vs_fusion": -0.408597141344627,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.7647290843183919,
+      -0.114384292078031
+     ],
+     "diff_onset_det_vs_fusion": -0.007407407407407418,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.03529411764705881,
+      0.012315789473684136
+     ]
+    },
+    "CausalCGM-MT (CGM)": {
+     "fapd": 2.260497617787189,
+     "true_apd": 0.7887347803070407,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 43.15584415584416,
+     "fapd_sd": 0.12666452494642585,
+     "true_apd_sd": 0.009091054561777908,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 1.2342787725547064,
+     "diff_fapd_vs_fusion": -0.13823186871360527,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.4999917939351524,
+      0.17230080622167285
+     ],
+     "diff_onset_det_vs_fusion": -0.012345679012345734,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.0366225926990513,
+      0.0
+     ]
+    },
+    "CausalCGM-MT (fusion)": {
+     "fapd": 2.1222657490735837,
+     "true_apd": 0.8090629962943356,
+     "onset_det": 0.9382716049382716,
+     "onset_lead": 43.98420596946913,
+     "fapd_sd": 0.20000320035911298,
+     "true_apd_sd": 0.03843592077319529,
+     "onset_det_sd": 0.008729713347982067,
+     "onset_lead_sd": 0.7190850252081809
+    },
+    "_fapd_rank": [
+     "Persistence",
+     "ARIMA(4,1,0)",
+     "CausalCGM-MT (fusion)",
+     "CausalCGM-MT (CGM)",
+     "Dilated LSTM (CGM)",
+     "Ridge-AR",
+     "LightGBM"
+    ]
+   },
+   "G15_D5": {
+    "Persistence": {
+     "fapd": 1.0672313393329804,
+     "true_apd": 0.7013234515616729,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 35.77922077922078,
+     "fapd_sd": 0.0,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": 0.6505029115934358,
+     "diff_fapd_vs_fusion_ci95": [
+      0.35547471997888996,
+      0.9624984012850845
+     ],
+     "diff_onset_det_vs_fusion": -0.009876543209876631,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.033342105263158,
+      0.0
+     ]
+    },
+    "Ridge-AR": {
+     "fapd": 2.286924298570672,
+     "true_apd": 0.7318157755426151,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 45.64935064935065,
+     "fapd_sd": 0.0,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": -0.569190047644256,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.9477415785429258,
+      -0.24350913192168386
+     ],
+     "diff_onset_det_vs_fusion": -0.009876543209876631,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.033342105263158,
+      0.0
+     ]
+    },
+    "ARIMA(4,1,0)": {
+     "fapd": 1.6262572789835894,
+     "true_apd": 0.7216516675489677,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 40.84415584415584,
+     "fapd_sd": 2.482534153247273e-16,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": 0.09147697194282678,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.1669109222610435,
+      0.32718723423111146
+     ],
+     "diff_onset_det_vs_fusion": -0.009876543209876631,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.033342105263158,
+      0.0
+     ]
+    },
+    "LightGBM": {
+     "fapd": 2.5003705664372684,
+     "true_apd": 0.7216516675489677,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 46.883116883116884,
+     "fapd_sd": 0.0,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": -0.7826363155108522,
+     "diff_fapd_vs_fusion_ci95": [
+      -1.1318345230302245,
+      -0.5291516888537229
+     ],
+     "diff_onset_det_vs_fusion": -0.009876543209876631,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.033342105263158,
+      0.0
+     ]
+    },
+    "Dilated LSTM (CGM)": {
+     "fapd": 2.049084171519322,
+     "true_apd": 0.7338485971413446,
+     "onset_det": 0.945679012345679,
+     "onset_lead": 45.171907040328094,
+     "fapd_sd": 0.160644361894125,
+     "true_apd_sd": 0.013252375455785146,
+     "onset_det_sd": 0.006762006882779858,
+     "onset_lead_sd": 0.5851765620351795,
+     "diff_fapd_vs_fusion": -0.3313499205929058,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.6068644095697984,
+      -0.1018771677855605
+     ],
+     "diff_onset_det_vs_fusion": -0.004938271604938316,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.03200000000000003,
+      0.013559322033898313
+     ]
+    },
+    "CausalCGM-MT (CGM)": {
+     "fapd": 1.8397035468501852,
+     "true_apd": 0.7216516675489677,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 43.51948051948052,
+     "fapd_sd": 0.09854468317881787,
+     "true_apd_sd": 0.012448439137489933,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 1.0762387105962443,
+     "diff_fapd_vs_fusion": -0.12196929592376904,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.38271009392498095,
+      0.11436436166604863
+     ],
+     "diff_onset_det_vs_fusion": -0.009876543209876631,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.033342105263158,
+      0.0
+     ]
+    },
+    "CausalCGM-MT (fusion)": {
+     "fapd": 1.7177342509264162,
+     "true_apd": 0.7501111699311804,
+     "onset_det": 0.9407407407407407,
+     "onset_lead": 44.2482319434951,
+     "fapd_sd": 0.15127115959228934,
+     "true_apd_sd": 0.018182109123555706,
+     "onset_det_sd": 0.01032913613005032,
+     "onset_lead_sd": 0.6820571631224311
+    },
+    "_fapd_rank": [
+     "Persistence",
+     "ARIMA(4,1,0)",
+     "CausalCGM-MT (fusion)",
+     "CausalCGM-MT (CGM)",
+     "Dilated LSTM (CGM)",
+     "Ridge-AR",
+     "LightGBM"
+    ]
+   },
+   "G30_D5": {
+    "Persistence": {
+     "fapd": 0.9757543673901534,
+     "true_apd": 0.6809952355743779,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 36.03896103896104,
+     "fapd_sd": 0.0,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": 0.5163366860772896,
+     "diff_fapd_vs_fusion_ci95": [
+      0.25578109931440607,
+      0.7949518347216205
+     ],
+     "diff_onset_det_vs_fusion": -0.009876543209876631,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.033342105263158,
+      0.0
+     ]
+    },
+    "Ridge-AR": {
+     "fapd": 2.002329274748544,
+     "true_apd": 0.7114875595553203,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 46.36363636363637,
+     "fapd_sd": 0.0,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": -0.510238221281101,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.7963175371618919,
+      -0.2621532184601643
+     ],
+     "diff_onset_det_vs_fusion": -0.009876543209876631,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.033342105263158,
+      0.0
+     ]
+    },
+    "ARIMA(4,1,0)": {
+     "fapd": 1.433139227104288,
+     "true_apd": 0.7013234515616729,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 41.42857142857143,
+     "fapd_sd": 0.0,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": 0.05895182636315499,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.20694942219732942,
+      0.3161045989768284
+     ],
+     "diff_onset_det_vs_fusion": -0.009876543209876631,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.033342105263158,
+      0.0
+     ]
+    },
+    "LightGBM": {
+     "fapd": 2.0429857067231336,
+     "true_apd": 0.7114875595553203,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 47.01298701298701,
+     "fapd_sd": 0.0,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": -0.5508946532556906,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.7854370392200564,
+      -0.36494530467084574
+     ],
+     "diff_onset_det_vs_fusion": -0.009876543209876631,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.033342105263158,
+      0.0
+     ]
+    },
+    "Dilated LSTM (CGM)": {
+     "fapd": 1.7543250397035468,
+     "true_apd": 0.6972578083642139,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 45.61038961038961,
+     "fapd_sd": 0.1208204229491536,
+     "true_apd_sd": 0.009091054561777908,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.697258685482914,
+     "diff_fapd_vs_fusion": -0.26223398623610383,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.4805962239352507,
+      -0.08280056040322857
+     ],
+     "diff_onset_det_vs_fusion": -0.009876543209876631,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.033342105263158,
+      0.0
+     ]
+    },
+    "CausalCGM-MT (CGM)": {
+     "fapd": 1.559174166225516,
+     "true_apd": 0.685060878771837,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 44.14285714285714,
+     "fapd_sd": 0.05548523155700559,
+     "true_apd_sd": 0.011588866152410532,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 1.2485444384191409,
+     "diff_fapd_vs_fusion": -0.0670831127580731,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.2679594633504153,
+      0.10986941273338387
+     ],
+     "diff_onset_det_vs_fusion": -0.009876543209876631,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.033342105263158,
+      0.0
+     ]
+    },
+    "CausalCGM-MT (fusion)": {
+     "fapd": 1.492091053467443,
+     "true_apd": 0.7135203811540498,
+     "onset_det": 0.9407407407407407,
+     "onset_lead": 44.707418546365915,
+     "fapd_sd": 0.1153077623195859,
+     "true_apd_sd": 0.01955105209021122,
+     "onset_det_sd": 0.01032913613005032,
+     "onset_lead_sd": 0.7572661470900076
+    },
+    "_fapd_rank": [
+     "Persistence",
+     "ARIMA(4,1,0)",
+     "CausalCGM-MT (fusion)",
+     "CausalCGM-MT (CGM)",
+     "Dilated LSTM (CGM)",
+     "Ridge-AR",
+     "LightGBM"
+    ]
+   },
+   "G60_D5": {
+    "Persistence": {
+     "fapd": 0.843620963472737,
+     "true_apd": 0.6606670195870831,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 38.506493506493506,
+     "fapd_sd": 1.2412670766236366e-16,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": 0.40046585494970866,
+     "diff_fapd_vs_fusion_ci95": [
+      0.19800034153085647,
+      0.6240274321969749
+     ],
+     "diff_onset_det_vs_fusion": -0.009876543209876631,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.033342105263158,
+      0.0
+     ]
+    },
+    "Ridge-AR": {
+     "fapd": 1.6465854949708842,
+     "true_apd": 0.6911593435680253,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 47.5974025974026,
+     "fapd_sd": 2.482534153247273e-16,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": -0.4024986765484386,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.6158552572342024,
+      -0.18706912287775826
+     ],
+     "diff_onset_det_vs_fusion": -0.009876543209876631,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.033342105263158,
+      0.0
+     ]
+    },
+    "ARIMA(4,1,0)": {
+     "fapd": 1.2298570672313394,
+     "true_apd": 0.6911593435680253,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 43.05194805194805,
+     "fapd_sd": 0.0,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": 0.014229751191106255,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.2384308115023767,
+      0.24556193028268383
+     ],
+     "diff_onset_det_vs_fusion": -0.009876543209876631,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.033342105263158,
+      0.0
+     ]
+    },
+    "LightGBM": {
+     "fapd": 1.6262572789835894,
+     "true_apd": 0.6708311275807305,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 48.76623376623377,
+     "fapd_sd": 2.482534153247273e-16,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": -0.3821704605611438,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.5636796077776226,
+      -0.23332339361672097
+     ],
+     "diff_onset_det_vs_fusion": -0.009876543209876631,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.033342105263158,
+      0.0
+     ]
+    },
+    "Dilated LSTM (CGM)": {
+     "fapd": 1.4392376919004763,
+     "true_apd": 0.6830280571731074,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 47.467532467532465,
+     "fapd_sd": 0.06649533147461847,
+     "true_apd_sd": 0.00850390286366026,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.9631426606617736,
+     "diff_fapd_vs_fusion": -0.19515087347803073,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.348888925496367,
+      -0.06559150145234463
+     ],
+     "diff_onset_det_vs_fusion": -0.009876543209876631,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.033342105263158,
+      0.0
+     ]
+    },
+    "CausalCGM-MT (CGM)": {
+     "fapd": 1.3375966119640021,
+     "true_apd": 0.6748967707781894,
+     "onset_det": 0.9506172839506173,
+     "onset_lead": 44.948051948051955,
+     "fapd_sd": 0.046909312986112256,
+     "true_apd_sd": 0.009091054561777853,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 1.319157082764058,
+     "diff_fapd_vs_fusion": -0.09350979354155653,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.2484106271629139,
+      0.040591081703813994
+     ],
+     "diff_onset_det_vs_fusion": -0.009876543209876631,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.033342105263158,
+      0.0
+     ]
+    },
+    "CausalCGM-MT (fusion)": {
+     "fapd": 1.2440868184224456,
+     "true_apd": 0.693192165166755,
+     "onset_det": 0.9407407407407407,
+     "onset_lead": 45.930011392116654,
+     "fapd_sd": 0.11909801944779037,
+     "true_apd_sd": 0.008503902863660312,
+     "onset_det_sd": 0.01032913613005032,
+     "onset_lead_sd": 0.8266104978702702
+    },
+    "_fapd_rank": [
+     "Persistence",
+     "ARIMA(4,1,0)",
+     "CausalCGM-MT (fusion)",
+     "CausalCGM-MT (CGM)",
+     "Dilated LSTM (CGM)",
+     "LightGBM",
+     "Ridge-AR"
+    ]
+   },
+   "G0_D10": {
+    "Persistence": {
+     "fapd": 1.0773954473266278,
+     "true_apd": 0.7013234515616729,
+     "onset_det": 0.9012345679012345,
+     "onset_lead": 34.178082191780824,
+     "fapd_sd": 0.0,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 1.2412670766236366e-16,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": 0.6830280571731073,
+     "diff_fapd_vs_fusion_ci95": [
+      0.38846625442530097,
+      0.9985193381904953
+     ],
+     "diff_onset_det_vs_fusion": -0.007407407407407196,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.09491737288135599,
+      0.059472972972973014
+     ]
+    },
+    "Ridge-AR": {
+     "fapd": 2.1547908946532557,
+     "true_apd": 0.8334568554790895,
+     "onset_det": 0.9259259259259259,
+     "onset_lead": 40.93333333333333,
+     "fapd_sd": 0.0,
+     "true_apd_sd": 1.2412670766236366e-16,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": -0.3943673901535205,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.7344130458945672,
+      -0.0951193105573269
+     ],
+     "diff_onset_det_vs_fusion": -0.032098765432098664,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.11118055555555549,
+      0.02168805657412269
+     ]
+    },
+    "ARIMA(4,1,0)": {
+     "fapd": 1.6770778189518265,
+     "true_apd": 0.7724722075172048,
+     "onset_det": 0.9382716049382716,
+     "onset_lead": 37.23684210526316,
+     "fapd_sd": 2.482534153247273e-16,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": 0.08334568554790867,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.23430521610274524,
+      0.3580026417787575
+     ],
+     "diff_onset_det_vs_fusion": -0.04444444444444429,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.11714906832298122,
+      -0.0033884180790959965
+     ]
+    },
+    "LightGBM": {
+     "fapd": 2.2767601905770247,
+     "true_apd": 0.8639491794600318,
+     "onset_det": 0.9382716049382716,
+     "onset_lead": 40.921052631578945,
+     "fapd_sd": 0.0,
+     "true_apd_sd": 1.2412670766236366e-16,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": -0.5163366860772896,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.9514156690990739,
+      -0.1982199751982962
+     ],
+     "diff_onset_det_vs_fusion": -0.04444444444444429,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.11714906832298122,
+      -0.0033884180790959965
+     ]
+    },
+    "Dilated LSTM (CGM)": {
+     "fapd": 1.9494759131815773,
+     "true_apd": 0.8090629962943355,
+     "onset_det": 0.9209876543209876,
+     "onset_lead": 39.67608962242704,
+     "fapd_sd": 0.04895682708582571,
+     "true_apd_sd": 0.019813494062502088,
+     "onset_det_sd": 0.01407623981603873,
+     "onset_lead_sd": 0.5795953255654422,
+     "diff_fapd_vs_fusion": -0.18905240868184214,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.47813409343045377,
+      0.014559922509668708
+     ],
+     "diff_onset_det_vs_fusion": -0.027160493827160348,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.10811969111969101,
+      0.015384615384615441
+     ]
+    },
+    "CausalCGM-MT (CGM)": {
+     "fapd": 1.8173425092641609,
+     "true_apd": 0.8171942826892536,
+     "onset_det": 0.9185185185185185,
+     "onset_lead": 38.65195587079509,
+     "fapd_sd": 0.11350173428597471,
+     "true_apd_sd": 0.005567111225039267,
+     "onset_det_sd": 0.01407623981603873,
+     "onset_lead_sd": 1.6856969410334972,
+     "diff_fapd_vs_fusion": -0.056919004764425685,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.2722005664770499,
+      0.12850570332303773
+     ],
+     "diff_onset_det_vs_fusion": -0.024691358024691246,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.10706356560415108,
+      0.02069872958257706
+     ]
+    },
+    "CausalCGM-MT (fusion)": {
+     "fapd": 1.7604235044997352,
+     "true_apd": 0.7948332451032292,
+     "onset_det": 0.8938271604938273,
+     "onset_lead": 40.027763644270486,
+     "fapd_sd": 0.10548170046843681,
+     "true_apd_sd": 0.02630914122037692,
+     "onset_det_sd": 0.022427039659981444,
+     "onset_lead_sd": 0.8366726154001922
+    },
+    "_fapd_rank": [
+     "Persistence",
+     "ARIMA(4,1,0)",
+     "CausalCGM-MT (fusion)",
+     "CausalCGM-MT (CGM)",
+     "Dilated LSTM (CGM)",
+     "Ridge-AR",
+     "LightGBM"
+    ]
+   },
+   "G0_D15": {
+    "Persistence": {
+     "fapd": 0.8944415034409741,
+     "true_apd": 0.6911593435680253,
+     "onset_det": 0.8518518518518519,
+     "onset_lead": 31.95652173913043,
+     "fapd_sd": 0.0,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 3.972054645195637e-15,
+     "diff_fapd_vs_fusion": 0.38013763896241404,
+     "diff_fapd_vs_fusion_ci95": [
+      0.13336092518291254,
+      0.6433288325543715
+     ],
+     "diff_onset_det_vs_fusion": 0.0,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.1387798066595058,
+      0.11795454545454537
+     ]
+    },
+    "Ridge-AR": {
+     "fapd": 1.4433033350979354,
+     "true_apd": 0.7826363155108522,
+     "onset_det": 0.9259259259259259,
+     "onset_lead": 36.46666666666667,
+     "fapd_sd": 0.0,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": -0.1687241926945473,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.4406274747697144,
+      0.10099053721138548
+     ],
+     "diff_onset_det_vs_fusion": -0.07407407407407407,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.181831550802139,
+      0.0050199275362317625
+     ]
+    },
+    "ARIMA(4,1,0)": {
+     "fapd": 1.2095288512440443,
+     "true_apd": 0.7114875595553203,
+     "onset_det": 0.888888888888889,
+     "onset_lead": 34.513888888888886,
+     "fapd_sd": 0.0,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 1.2412670766236366e-16,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": 0.0650502911593438,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.2269727306372899,
+      0.3449200910514367
+     ],
+     "diff_onset_det_vs_fusion": -0.03703703703703709,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.12123737373737374,
+      0.04058258258258257
+     ]
+    },
+    "LightGBM": {
+     "fapd": 1.4128110111169931,
+     "true_apd": 0.7928004235044998,
+     "onset_det": 0.9382716049382716,
+     "onset_lead": 35.19736842105263,
+     "fapd_sd": 0.0,
+     "true_apd_sd": 0.0,
+     "onset_det_sd": 0.0,
+     "onset_lead_sd": 0.0,
+     "diff_fapd_vs_fusion": -0.13823186871360504,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.4604747826911555,
+      0.11132595420568231
+     ],
+     "diff_onset_det_vs_fusion": -0.08641975308641969,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.1840428571428571,
+      -0.017280423280423274
+     ]
+    },
+    "Dilated LSTM (CGM)": {
+     "fapd": 1.4311064055055585,
+     "true_apd": 0.7562096347273689,
+     "onset_det": 0.8987654320987655,
+     "onset_lead": 35.80258226681244,
+     "fapd_sd": 0.040273474316384554,
+     "true_apd_sd": 0.029282511125997703,
+     "onset_det_sd": 0.018311601202705346,
+     "onset_lead_sd": 0.600468321414312,
+     "diff_fapd_vs_fusion": -0.15652726310217036,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.38343438434072613,
+      0.020902045929707826
+     ],
+     "diff_onset_det_vs_fusion": -0.04691358024691361,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.14324911868390117,
+      0.004879554351099068
+     ]
+    },
+    "CausalCGM-MT (CGM)": {
+     "fapd": 1.3050714663843304,
+     "true_apd": 0.7541768131286395,
+     "onset_det": 0.888888888888889,
+     "onset_lead": 34.433865335484555,
+     "fapd_sd": 0.07350554724190136,
+     "true_apd_sd": 0.013252375455785146,
+     "onset_det_sd": 0.027605777499997403,
+     "onset_lead_sd": 1.2131276595099942,
+     "diff_fapd_vs_fusion": -0.03049232398094226,
+     "diff_fapd_vs_fusion_ci95": [
+      -0.20870758540490159,
+      0.10792664923063981
+     ],
+     "diff_onset_det_vs_fusion": -0.03703703703703709,
+     "diff_onset_det_vs_fusion_ci95": [
+      -0.14723731884057964,
+      0.023192028985507363
+     ]
+    },
+    "CausalCGM-MT (fusion)": {
+     "fapd": 1.274579142403388,
+     "true_apd": 0.7338485971413446,
+     "onset_det": 0.8518518518518519,
+     "onset_lead": 36.67330250541689,
+     "fapd_sd": 0.09738467323937192,
+     "true_apd_sd": 0.018182109123555702,
+     "onset_det_sd": 0.01952023247017518,
+     "onset_lead_sd": 1.0789144070667704
+    },
+    "_fapd_rank": [
+     "Persistence",
+     "ARIMA(4,1,0)",
+     "CausalCGM-MT (fusion)",
+     "CausalCGM-MT (CGM)",
+     "LightGBM",
+     "Dilated LSTM (CGM)",
+     "Ridge-AR"
+    ]
+   }
+  }
+ },
+ "verification": {
+  "Persistence|seed123|30": true,
+  "Persistence|seed1337|30": true,
+  "Persistence|seed42|30": true,
+  "Persistence|seed456|30": true,
+  "Persistence|seed789|30": true,
+  "Ridge-AR|seed123|30": true,
+  "Ridge-AR|seed1337|30": true,
+  "Ridge-AR|seed42|30": true,
+  "Ridge-AR|seed456|30": true,
+  "Ridge-AR|seed789|30": true,
+  "ARIMA(4,1,0)|seed123|30": true,
+  "ARIMA(4,1,0)|seed1337|30": true,
+  "ARIMA(4,1,0)|seed42|30": true,
+  "ARIMA(4,1,0)|seed456|30": true,
+  "ARIMA(4,1,0)|seed789|30": true,
+  "LightGBM|seed123|30": true,
+  "LightGBM|seed1337|30": true,
+  "LightGBM|seed42|30": true,
+  "LightGBM|seed456|30": true,
+  "LightGBM|seed789|30": true,
+  "Dilated LSTM (CGM)|seed123|30": true,
+  "Dilated LSTM (CGM)|seed1337|30": true,
+  "Dilated LSTM (CGM)|seed42|30": true,
+  "Dilated LSTM (CGM)|seed456|30": true,
+  "Dilated LSTM (CGM)|seed789|30": true,
+  "CausalCGM-MT (CGM)|seed123|30": true,
+  "CausalCGM-MT (CGM)|seed1337|30": true,
+  "CausalCGM-MT (CGM)|seed42|30": true,
+  "CausalCGM-MT (CGM)|seed456|30": true,
+  "CausalCGM-MT (CGM)|seed789|30": true,
+  "CausalCGM-MT (fusion)|seed123|30": true,
+  "CausalCGM-MT (fusion)|seed1337|30": true,
+  "CausalCGM-MT (fusion)|seed42|30": true,
+  "CausalCGM-MT (fusion)|seed456|30": true,
+  "CausalCGM-MT (fusion)|seed789|30": true,
+  "Persistence|seed123|60": true,
+  "Persistence|seed1337|60": true,
+  "Persistence|seed42|60": true,
+  "Persistence|seed456|60": true,
+  "Persistence|seed789|60": true,
+  "Ridge-AR|seed123|60": true,
+  "Ridge-AR|seed1337|60": true,
+  "Ridge-AR|seed42|60": true,
+  "Ridge-AR|seed456|60": true,
+  "Ridge-AR|seed789|60": true,
+  "ARIMA(4,1,0)|seed123|60": true,
+  "ARIMA(4,1,0)|seed1337|60": true,
+  "ARIMA(4,1,0)|seed42|60": true,
+  "ARIMA(4,1,0)|seed456|60": true,
+  "ARIMA(4,1,0)|seed789|60": true,
+  "LightGBM|seed123|60": true,
+  "LightGBM|seed1337|60": true,
+  "LightGBM|seed42|60": true,
+  "LightGBM|seed456|60": true,
+  "LightGBM|seed789|60": true,
+  "Dilated LSTM (CGM)|seed123|60": true,
+  "Dilated LSTM (CGM)|seed1337|60": true,
+  "Dilated LSTM (CGM)|seed42|60": true,
+  "Dilated LSTM (CGM)|seed456|60": true,
+  "Dilated LSTM (CGM)|seed789|60": true,
+  "CausalCGM-MT (CGM)|seed123|60": true,
+  "CausalCGM-MT (CGM)|seed1337|60": true,
+  "CausalCGM-MT (CGM)|seed42|60": true,
+  "CausalCGM-MT (CGM)|seed456|60": true,
+  "CausalCGM-MT (CGM)|seed789|60": true,
+  "CausalCGM-MT (fusion)|seed123|60": true,
+  "CausalCGM-MT (fusion)|seed1337|60": true,
+  "CausalCGM-MT (fusion)|seed42|60": true,
+  "CausalCGM-MT (fusion)|seed456|60": true,
+  "CausalCGM-MT (fusion)|seed789|60": true
+ }
+}

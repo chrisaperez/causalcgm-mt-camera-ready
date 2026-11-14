@@ -1,0 +1,22 @@
+\begin{table*}[t]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\caption{OhioT1DM test split, $\PH = 30$~min: mean $\pm$ sd over 5 training seeds. Alarm thresholds are fitted on the calibration split and applied unchanged to test. PR-AUC (onset) excludes anchors that are below 70~mg/dL now or in the preceding 30~min. Onset lead is minutes from the first valid alert to the first reading below 70. FAPD@5\% counts false alarm episodes under the default alarm policy: an episode lasts while the score stays above threshold, with no merging across gaps and a minimum duration of one reading (5~min); Appendix~\ref{sec:appendix_latching} varies both. Classical arms and LightGBM are deterministic (sd 0).}
+\label{tab:sota_multiseed_ph30}
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
+\begin{tabular}{lrrrrrrr}
+\toprule
+Arm & RMSE & PR-AUC & PR-AUC (onset) & Se@5\% (cal.) & FAPD@5\% & Onset lead & D+E \\
+\midrule
+Persistence & 23.29 $\pm$ 0.00 & 0.832 $\pm$ 0.000 & 0.333 $\pm$ 0.000 & 0.933 $\pm$ 0.000 & 1.16 $\pm$ 0.00 & 23.7 $\pm$ 0.0 & 272 $\pm$ 0 \\
+Ridge-AR & 20.05 $\pm$ 0.00 & 0.829 $\pm$ 0.000 & 0.416 $\pm$ 0.000 & 0.964 $\pm$ 0.000 & 2.99 $\pm$ 0.00 & 26.4 $\pm$ 0.0 & 351 $\pm$ 0 \\
+ARIMA(4,1,0) & 21.09 $\pm$ 0.00 & 0.856 $\pm$ 0.000 & 0.405 $\pm$ 0.000 & 0.957 $\pm$ 0.000 & 2.05 $\pm$ 0.00 & 25.8 $\pm$ 0.0 & 187 $\pm$ 0 \\
+LightGBM & 18.92 $\pm$ 0.00 & 0.841 $\pm$ 0.000 & 0.460 $\pm$ 0.000 & 0.968 $\pm$ 0.000 & 2.90 $\pm$ 0.00 & 27.1 $\pm$ 0.0 & 270 $\pm$ 0 \\
+Dilated LSTM (CGM) & 19.35 $\pm$ 0.15 & 0.863 $\pm$ 0.008 & 0.435 $\pm$ 0.029 & 0.964 $\pm$ 0.004 & 2.61 $\pm$ 0.21 & 26.4 $\pm$ 0.2 & 172 $\pm$ 6 \\
+CausalCGM-MT (CGM) & 19.28 $\pm$ 0.09 & 0.863 $\pm$ 0.004 & 0.414 $\pm$ 0.028 & 0.958 $\pm$ 0.006 & 2.64 $\pm$ 0.19 & 26.0 $\pm$ 0.6 & 195 $\pm$ 23 \\
+CausalCGM-MT (fusion) & 18.76 $\pm$ 0.14 & 0.863 $\pm$ 0.009 & 0.437 $\pm$ 0.032 & 0.953 $\pm$ 0.003 & 2.47 $\pm$ 0.20 & 26.2 $\pm$ 0.2 & 197 $\pm$ 28 \\
+CausalCGM-MT + LoRA (r=4) & 21.62 $\pm$ 0.34 & 0.670 $\pm$ 0.065 & 0.247 $\pm$ 0.041 & 0.808 $\pm$ 0.068 & 1.78 $\pm$ 0.14 & 21.7 $\pm$ 1.1 & 341 $\pm$ 33 \\
+\bottomrule
+\end{tabular}}
+\end{table*}

@@ -1,0 +1,20 @@
+\begin{table*}[t]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\caption{Few-shot personalisation on OhioT1DM, PH = 30 min, 24 h adaptation prefix, 12 subjects. $\Delta$ is the paired per-subject change from the zero-shot population model on identical evaluation windows; $p$ is a paired $t$-test with Holm--Bonferroni adjustment across modes. The zero-shot baseline reads 18.84~mg/dL here against 18.97~mg/dL in Table~\ref{tab:sota_ph30}: the same checkpoint on the same 28,335 windows, aggregated differently. This table averages the 12 per-subject RMSEs, which is the quantity the paired tests are computed on; Table~\ref{tab:sota_ph30} pools the residuals across all windows. Weighting these rows by their window counts recovers the pooled RMSE exactly (18.968 against 18.97). PR-AUC does not decompose this way: it is a rank statistic over the pooled residuals, so the per-subject mean (0.790, sd 0.145, range 0.566--0.954 across the 12 subjects) is a different quantity from the pooled 0.870 and is not recoverable from it by reweighting. The paired tests are computed on the per-subject values reported here.}
+\label{tab:personalization}
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
+\begin{tabular}{lrrrrrrrrr}
+\toprule
+Adaptation & RMSE & $\Delta$ RMSE & $p_{\mathrm{Holm}}$ & PR-AUC & $\Delta$ PR-AUC & $p_{\mathrm{Holm}}$ & FAPD@5\% & $\Delta$ FAPD@5\% & $p_{\mathrm{Holm}}$ \\
+\midrule
+none & \textbf{18.844} & \textbf{+0.000} & -- & \textbf{0.790} & \textbf{+0.000} & -- & -- & -- & -- \\
+bn\_adapt & 19.887 & +1.043 & 0.008 & 0.733 & -0.057 & 0.063 & -- & -- & -- \\
+lora (r=4) & 21.678 & +2.834 & 0.000 & 0.686 & -0.105 & 0.063 & -- & -- & -- \\
+lora (r=8) & 21.366 & +2.522 & 0.000 & 0.678 & -0.112 & 0.036 & -- & -- & -- \\
+head\_only & 19.545 & +0.701 & 0.022 & 0.734 & -0.056 & 0.033 & -- & -- & -- \\
+full & 22.826 & +3.982 & 0.000 & 0.697 & -0.094 & 0.006 & -- & -- & -- \\
+\bottomrule
+\end{tabular}}
+\end{table*}
